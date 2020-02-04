@@ -3,6 +3,7 @@ import { Route } from "react-router-dom";
 import ProviderProvider from "./providers/ProviderProvider";
 import "./Fido";
 import { UserContext } from "./users/UserProvider";
+import Login from "./auth/Login";
 
 export default props => {
   const { users } = useContext(UserContext);
