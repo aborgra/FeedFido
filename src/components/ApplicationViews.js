@@ -4,11 +4,12 @@ import ProviderProvider from "./providers/ProviderProvider";
 import "./Fido";
 import { UserContext } from "./users/UserProvider";
 import Login from "./auth/Login";
+import ChildPetList from "./pets/ChildPetList";
 
 export default props => {
-  const { users } = useContext(UserContext);
+  const  {users}  = useContext(UserContext);
   const activeUserId = parseInt(localStorage.getItem("fido_user"));
-  const activeUser = users.find(user => user.id === activeUserId) || {};
+  const activeUser = users.find(user => user.id === activeUserId) || {}
   console.log(activeUserId);
 
   return (
@@ -19,15 +20,15 @@ export default props => {
           path="/"
           render={props => {
             if (activeUser !== null) {
-              if (activeUser.parentId !== 0) {
+              if (activeUser.parentId === 0) {
                 return (
                   <>
                     <section className="parentDashboardContainer">
                       <div className="petListContainer">
-                        <ParentPetList {...props} />
+                        {/* <ParentPetList {...props} /> */}
                       </div>
                       <div className="childContainer">
-                        <ChildList {...props} />
+                        {/* <ChildList {...props} /> */}
                       </div>
                     </section>
                   </>
@@ -37,7 +38,9 @@ export default props => {
                   <>
                     <section className="childDashboardContainer">
                       <div className="petListContainer">
+                        <ProviderProvider>
                         <ChildPetList {...props} />
+                        </ProviderProvider>
                       </div>
                     </section>
                   </>
