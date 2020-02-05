@@ -35,13 +35,12 @@ console.log("pets", pets)
 
   return (
     <div className="childPets">
-      {allPetChoresArray.map(kpc => {
+      {filteredPetChores.map(fpc => {
         return (
-          <div>{kpc.kidPetChores.dueDate}</div>
-          // <ChildPet
-          //   key={kpc.id}
-          //   kpc={kpc}
-          // />
+          <ChildPet
+            key={fpc.id}
+            pet={fpc}
+          />
         );
       })}
     </div>
