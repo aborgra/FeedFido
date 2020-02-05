@@ -10,7 +10,7 @@ return (
         <ul className="pet__chores">Chores:
  
         {pet.foundChoresArray.map(fca => (
-          <li>{fca.chores.name}</li>))}
+        <li>{fca.chores.name}   Due:{fca.dueDate}</li>))}
         </ul>
         
 
