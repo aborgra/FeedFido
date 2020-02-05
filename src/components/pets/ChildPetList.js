@@ -14,7 +14,7 @@ console.log("pets", pets)
 
   const activeUserId = parseInt(localStorage.getItem("fido_user"));
   const activeUser = users.find(user => user.id === activeUserId) || {}
-  const petChoresArray =
+  const allPetChoresArray =
     pets.map(pet => {
       let allChildPetChores = []
       let foundPetChores = pet.kidPetChores.map(kpc => {
@@ -24,14 +24,18 @@ console.log("pets", pets)
       pet.foundChoresArray = allChildPetChores
       return pet}) || [];
 
+      const filteredPetChores = allPetChoresArray.filter (pc => pc.foundChoresArray.length !== 0
+        
+      ) || []
+
  
 
-  console.log("allChildPetChores", petChoresArray);
+  console.log("filteredPetChores", filteredPetChores);
 
 
   return (
     <div className="childPets">
-      {petChoresArray.map(kpc => {
+      {allPetChoresArray.map(kpc => {
         return (
           <div>{kpc.kidPetChores.dueDate}</div>
           // <ChildPet
