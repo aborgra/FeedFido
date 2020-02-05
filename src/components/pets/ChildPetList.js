@@ -12,7 +12,6 @@ export default props => {
   const { kidPetChores } = useContext(KidPetChoreContext)
   const { chores } = useContext(ChoreContext)
 
-console.log("pets", pets)
 
   const activeUserId = parseInt(localStorage.getItem("fido_user"));
   // const activeUser = users.find(user => user.id === activeUserId) || {}
@@ -21,7 +20,6 @@ console.log("pets", pets)
       let allChildPetChores = []
       let foundPetChores = pet.kidPetChores.map(kpc => {
         if (kpc.userId === activeUserId) {
-          console.log("kpc", kpc)
           kpc.chores = chores.find(chore => kpc.choreId === chore.id)
           allChildPetChores.push(kpc)}}) || []
       pet.foundChoresArray = allChildPetChores
@@ -32,9 +30,6 @@ console.log("pets", pets)
       ) || []
 
  
-
-  console.log("filteredPetChores", filteredPetChores);
-
 
   return (
     <div className="childPets">

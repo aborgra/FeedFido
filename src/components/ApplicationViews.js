@@ -5,6 +5,7 @@ import "./Fido";
 import { UserContext } from "./users/UserProvider";
 import Login from "./auth/Login";
 import ChildPetList from "./pets/ChildPetList";
+import ParentPetList from "./pets/ParentPetList";
 
 export default props => {
   const  {users}  = useContext(UserContext);
@@ -25,7 +26,7 @@ export default props => {
                   <>
                     <section className="parentDashboardContainer">
                       <div className="petListContainer">
-                        {/* <ParentPetList {...props} /> */}
+                        <ParentPetList {...props} />
                       </div>
                       <div className="childContainer">
                         {/* <ChildList {...props} /> */}
