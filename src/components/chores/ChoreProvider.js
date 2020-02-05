@@ -35,7 +35,7 @@ export const ChoreProvider = (props) => {
   }, [])
 
   useEffect(() => {
-    console.log("***Chores APP STATE CHANGED")
+    // console.log("***Chores APP STATE CHANGED")
   }, [chores])
 
   return (

@@ -45,7 +45,7 @@ export const PetProvider = (props) => {
   }, [])
 
   useEffect(() => {
-    console.log("***Pets APP STATE CHANGED", pets)
+    // console.log("***Pets APP STATE CHANGED", pets)
   }, [pets])
 
   return (

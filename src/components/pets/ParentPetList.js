@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import "./Pets.css";
 import { PetContext } from "./PetProvider";
-import ParentPet from "./ChildPet";
+import ParentPet from "./ParentPet";
 import { UserContext } from "../users/UserProvider";
 import { KidPetChoreContext } from "../chores/KidPetChoreProvider";
 import { ChoreContext } from "../chores/ChoreProvider";

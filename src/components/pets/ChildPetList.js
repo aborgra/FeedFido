@@ -29,7 +29,7 @@ export default props => {
         
       ) || []
 
- 
+ console.log(filteredPetChores)
 
   return (
     <div className="childPets">
