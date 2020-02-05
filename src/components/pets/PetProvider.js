@@ -6,7 +6,7 @@ export const PetProvider = (props) => {
   const [pets, setPets] = useState([])
 
   const getPets = () => {
-    return fetch("http://localhost:8088/pets?_expand=parent")
+    return fetch("http://localhost:8088/pets?_embed=kidPetChores")
           .then(res => res.json())
           .then(setPets)
   }
@@ -45,7 +45,7 @@ export const PetProvider = (props) => {
   }, [])
 
   useEffect(() => {
-    console.log("***Pets APP STATE CHANGED")
+    console.log("***Pets APP STATE CHANGED", pets)
   }, [pets])
 
   return (

@@ -25,7 +25,13 @@ export default () => (
                   </ProviderProvider>
                 )}
               />
-              <Route render={props => <ApplicationViews {...props} />} />
+              <Route
+                render={props => (
+                  <ProviderProvider>
+                    <ApplicationViews {...props} />
+                  </ProviderProvider>
+                )}
+              />
             </>
           );
         } else {

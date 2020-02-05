@@ -6,7 +6,7 @@ export const KidPetChoreProvider = (props) => {
   const [kidPetChores, setKidPetChores] = useState([])
 
   const getKidPetChores = () => {
-    return fetch("http://localhost:8088/kidPetChores?_expand=chore")
+    return fetch("http://localhost:8088/kidPetChores?_expand=chore&_expand=pet")
           .then(res => res.json())
           .then(setKidPetChores)
   }
