@@ -11,11 +11,11 @@ const { users } = useContext(UserContext)
   console.log(activeUserId)
 
   return (
-    <ul className="navbar">
+    <div className="navbar">
       <h3 className="navbar__message">{activeUser.userName} - Welcome to Feed Fido!</h3>
 {
     localStorage.getItem("fido_user")
-        ? <li className="navbar__item">
+        ?
           <button className= "logoutButton btn btn-light " onClick={e => {
                     e.preventDefault()
                     localStorage.removeItem("fido_user")
@@ -24,10 +24,10 @@ const { users } = useContext(UserContext)
             Log Out
           </button>
   
-        </li>
+       
         : ""
 }
       
-    </ul>
+    </div>
   );
 };
