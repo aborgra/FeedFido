@@ -45,7 +45,7 @@ export const KidPetChoreProvider = (props) => {
   }, [])
 
   useEffect(() => {
-    console.log("***kidPetChores APP STATE CHANGED")
+    // console.log("***kidPetChores APP STATE CHANGED")
   }, [kidPetChores])
 
   return (
