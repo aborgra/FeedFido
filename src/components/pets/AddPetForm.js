@@ -16,6 +16,7 @@ export default props => {
     if (foundPet === undefined) {
       addPet({
         name: newPet.name,
+        pic: newPet.pic,
         userId: parseInt(localStorage.getItem("fido_user"))
       }).then(() => props.history.push("/"));
     }else{
@@ -38,6 +39,22 @@ export default props => {
             proptype="varchar"
             placeholder="Pet Name"
             defaultValue={newPet.name}
+            onChange={handleControlledInputChange}
+          />
+        </div>
+      </fieldset>
+      <fieldset>
+        <div className="form-group">
+          <label htmlFor="pic">Pet Picture </label>
+          <input
+            type="file"
+            name="pic"
+            required
+            autoFocus
+            className="form-control"
+            proptype="varchar"
+            placeholder=""
+            defaultValue={newPet.pic}
             onChange={handleControlledInputChange}
           />
         </div>
