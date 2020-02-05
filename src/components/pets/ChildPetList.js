@@ -1,25 +1,28 @@
 import React, { useContext } from "react";
 import "./ChildPet.css";
 import { PetContext } from "./PetProvider";
-import { ChildPet } from "./ChildPet";
+import ChildPet from "./ChildPet";
 import { UserContext } from "../users/UserProvider";
 import { KidPetChoreContext } from "../chores/KidPetChoreProvider";
+import { ChoreContext } from "../chores/ChoreProvider";
 
 export default props => {
   const { users } = useContext(UserContext);
   const { pets } = useContext(PetContext);
   const { kidPetChores } = useContext(KidPetChoreContext)
+  const { chores } = useContext(ChoreContext)
 
 console.log("pets", pets)
 
   const activeUserId = parseInt(localStorage.getItem("fido_user"));
-  const activeUser = users.find(user => user.id === activeUserId) || {}
+  // const activeUser = users.find(user => user.id === activeUserId) || {}
   const allPetChoresArray =
     pets.map(pet => {
       let allChildPetChores = []
       let foundPetChores = pet.kidPetChores.map(kpc => {
         if (kpc.userId === activeUserId) {
           console.log("kpc", kpc)
+          kpc.chores = chores.find(chore => kpc.choreId === chore.id)
           allChildPetChores.push(kpc)}}) || []
       pet.foundChoresArray = allChildPetChores
       return pet}) || [];
@@ -35,13 +38,12 @@ console.log("pets", pets)
 
   return (
     <div className="childPets">
-      {allPetChoresArray.map(kpc => {
+      {filteredPetChores.map(fpc => {
         return (
-          <div>{kpc.kidPetChores.dueDate}</div>
-          // <ChildPet
-          //   key={kpc.id}
-          //   kpc={kpc}
-          // />
+          <ChildPet {...props}
+            key={fpc.id}
+            pet={fpc}
+          />
         );
       })}
     </div>
