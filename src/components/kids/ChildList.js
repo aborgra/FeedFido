@@ -37,7 +37,7 @@ export default props => {
   return (
     <>
       <section className="parentKids">
-        <button onClick={() => props.history.push("/kids/create")}>
+        <button onClick={() => props.history.push("/addChild")}>
           Add a Child
         </button>
         <div className="kids__list">
