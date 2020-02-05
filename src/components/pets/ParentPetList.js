@@ -42,7 +42,7 @@ console.log(allPetChoresArray)
   return (
     <>
       <section className="parentPets">
-        <button onClick={() => props.history.push("/pets/create")}>
+        <button onClick={() => props.history.push("/addPet")}>
           Add a Pet
         </button>
         <div className="pets__list">

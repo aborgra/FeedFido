@@ -54,7 +54,7 @@ export default props => {
           />
         </div>
       </fieldset>
-      <div className="newsButtonContainer">
+      <div className="saveButtonContainer">
       <button type="submit"
         onClick={evt => {
           evt.preventDefault()
