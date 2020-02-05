@@ -7,6 +7,7 @@ import Login from "./auth/Login";
 import ChildPetList from "./pets/ChildPetList";
 import ParentPetList from "./pets/ParentPetList";
 import ChildList from "./kids/ChildList";
+import AddChildForm from "./kids/AddChildForm";
 
 export default props => {
   const  {users}  = useContext(UserContext);
@@ -52,10 +53,9 @@ export default props => {
             return <Login {...props} />;
           }}
         />
-        {/* <Route exact path="/editEvent/:eventId(\d+)" render={props => <EventForm {...props} />} />
-        <Route exact path="/createEvent" render={props => <EventForm {...props} />} />
-        <Route exact path="/createNews" render={props => <NewsForm {...props} />} />
-        <Route exact path="/tasks/create" render={props => <TaskForm {...props} />} />
+        {/* <Route exact path="/editEvent/:eventId(\d+)" render={props => <EventForm {...props} />} /> */}
+        <Route exact path="/addChild" render={props => <AddChildForm {...props} />} />
+        {/* <Route exact path="/tasks/create" render={props => <TaskForm {...props} />} />
         <Route exact path="/editNews/:newsId(\d+)" render={props => <NewsForm {...props} />} />
         <Route exact path="/tasks/edit/:tasksId(\d+)" render={props => <TaskForm {...props} />} />
         <Route exact path="/editMessage/:messageId(\d+)" render={props => <EditMessageForm {...props} />} /> */}
