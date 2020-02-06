@@ -19,7 +19,7 @@ export default props => {
     pets.map(pet => {
       let allChildPetChores = []
       let foundPetChores = pet.kidPetChores.map(kpc => {
-        if (kpc.userId === activeUserId) {
+        if (kpc.userId === activeUserId && kpc.isCompleted === false) {
           kpc.chores = chores.find(chore => kpc.choreId === chore.id)
           allChildPetChores.push(kpc)}}) || []
       pet.foundChoresArray = allChildPetChores

@@ -59,6 +59,8 @@ export default props => {
         <Route exact path="/addPet" render={props => <AddPetForm {...props} />} />
         <Route exact path="/addChore/:choreId(\d+)" render={props => <ChoresForm {...props} />} />
         <Route exact path="/addChild" render={props => <AddChildForm {...props} />} />
+        <Route exact path="/editChore/:kpcId(\d+)" render={props => <ChoresForm {...props} />} />
+
         {/* <Route exact path="/tasks/create" render={props => <TaskForm {...props} />} />
         <Route exact path="/editNews/:newsId(\d+)" render={props => <NewsForm {...props} />} />
         <Route exact path="/tasks/edit/:tasksId(\d+)" render={props => <TaskForm {...props} />} />
