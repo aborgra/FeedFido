@@ -1,9 +1,11 @@
-import React, {useState, useEffect } from "react"
+import React, {useState, useEffect, useContext } from "react"
+import { KidPetChoreContext } from "../chores/KidPetChoreProvider";
 
 export const PetContext = React.createContext()
 
 export const PetProvider = (props) => {
   const [pets, setPets] = useState([])
+  const { kidPetChores } = useContext(KidPetChoreContext);
 
   const getPets = () => {
     return fetch("http://localhost:8088/pets?_embed=kidPetChores")
@@ -47,6 +49,11 @@ export const PetProvider = (props) => {
   useEffect(() => {
     // console.log("***Pets APP STATE CHANGED", pets)
   }, [pets])
+
+  useEffect(() => {
+    console.log("***KPC APP STATE CHANGED", kidPetChores)
+    getPets()
+  }, [kidPetChores])
 
   return (
     <PetContext.Provider value = {{

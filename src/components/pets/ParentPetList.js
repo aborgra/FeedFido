@@ -5,6 +5,7 @@ import ParentPet from "./ParentPet";
 import { UserContext } from "../users/UserProvider";
 import { KidPetChoreContext } from "../chores/KidPetChoreProvider";
 import { ChoreContext } from "../chores/ChoreProvider";
+import { Button } from '@material-ui/core'
 
 export default props => {
   const { users } = useContext(UserContext);
@@ -42,9 +43,11 @@ console.log(allPetChoresArray)
   return (
     <>
       <section className="parentPets">
-        <button onClick={() => props.history.push("/addPet")}>
-          Add a Pet
-        </button>
+      <img className="addPetIcon"
+              src={require("./addPet.svg")}
+         onClick={() => props.history.push("/addPet")}
+          
+        />
         <div className="pets__list">
           {allPetChoresArray.map(pc => {
             return <ParentPet {...props} key={pc.id} pet={pc} />;

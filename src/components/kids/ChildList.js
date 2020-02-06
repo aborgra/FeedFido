@@ -37,9 +37,9 @@ export default props => {
   return (
     <>
       <section className="parentKids">
-        <button onClick={() => props.history.push("/addChild")}>
-          Add a Child
-        </button>
+        <img className="addChild" src={require("../pets/add-user.svg")}
+        onClick={() => props.history.push("/addChild")}
+        />
         <div className="kids__list">
           {userChildren.map(child => {
             return <Child {...props} key={child.id} child={child} />;
