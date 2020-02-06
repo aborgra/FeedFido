@@ -9,6 +9,7 @@ import Typography from '@material-ui/core/Typography';
 export default ({ pet, history }) => {
   const { deleteKidPetChore } = useContext(KidPetChoreContext);
   let choreItemCompleted = "ChoreNotCompleted"
+ 
 
 
   return (
@@ -28,7 +29,7 @@ export default ({ pet, history }) => {
          
           <li className={fca.isCompleted ? (choreItemCompleted = "choreCompleted"):(choreItemCompleted = "notCompleted")}> 
            
-            {fca.chores.name} Due:{fca.dueDate} Assigned to:{fca.child.userName}
+            {fca.chores.name} Assigned to:{fca.child.userName}
             <CardActions>
             <img
               src={require("./edit.svg")}
