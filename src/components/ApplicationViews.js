@@ -54,7 +54,7 @@ export default props => {
             return <Login {...props} />;
           }}
         />
-        {/* <Route exact path="/editEvent/:eventId(\d+)" render={props => <EventForm {...props} />} /> */}
+       
         <Route exact path="/addPet" render={props => <AddPetForm {...props} />} />
         <Route exact path="/addChore/:petId(\d+)" render={props => <ChoresForm {...props} />} />
         <Route exact path="/addChild" render={props => <AddChildForm {...props} />} />
