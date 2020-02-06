@@ -23,7 +23,7 @@ export default props => {
       const [singleChore, setSingleChore] = useState({});
       const activeUserId = parseInt(localStorage.getItem("fido_user"));
 
-      const editMode = props.match.params.hasOwnProperty("/editChore");
+      const editMode = props.match.params.hasOwnProperty("kpcId");
       // Not currently determining edit vs add
       const children = users.filter(user => user.parentId > 0) || []
       const userChildren = children.filter(child => child.parentId === activeUserId)
@@ -56,14 +56,15 @@ export default props => {
         if (editMode) {
           editKidPetChore({
             id: singleChore.id,
-            petId: singleChore.petId,
-            userId: singleChore.userId,
-            choreId: singleChore.choreId,
+            petId: parseInt(singleChore.petId),
+            userId: parseInt(singleChore.userId),
+            choreId: parseInt(singleChore.choreId),
             dueDate: singleChore.dueDate,
-            recurrance: singleChore.recurrance,
-            isCompleted: singleChore.complete
+            recurrance: "Daily",
+            isCompleted: false
           }).then(() => props.history.push("/"));
         } else {
+          console.log("parseInt(props.match.params.petId)", parseInt(props.match.params.petId))
           let formattedDate = new Date().toString();
           formattedDate = formattedDate.split(" ");
           formattedDate[0] += ".";
@@ -84,12 +85,12 @@ export default props => {
           formattedDate = formattedDate.slice(0, 6).join(" ");
           addKidPetChore({
             id: singleChore.id,
-            petId: props.match.params.hasOwnProperty("petId"),
-            userId: singleChore.child,
-            choreId: singleChore.chore,
+            petId: parseInt(props.match.params.petId),
+            userId: parseInt(singleChore.userId),
+            choreId: parseInt(singleChore.choreId),
             dueDate: singleChore.dueDate,
-            recurrance: singleChore.recurrance,
-            isCompleted: singleChore.complete
+            recurrance: "Daily",
+            isCompleted: false
           }).then(() => props.history.push("/"));
         }
       };
@@ -105,7 +106,7 @@ export default props => {
       
       <fieldset>
         <select
-          defaultValue=""
+          defaultValue={singleChore.choreId}
           name="choreId"
           id="choreId"
           className="form-control"
@@ -122,7 +123,7 @@ export default props => {
       </fieldset>
       <fieldset>
         <select
-          defaultValue=""
+          defaultValue={singleChore.userId}
           name="userId"
           id="userId"
           className="form-control"
