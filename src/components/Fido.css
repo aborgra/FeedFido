@@ -1,0 +1,13 @@
+.parentDashboardContainer {
+  display: flex;
+  flex-direction: row;
+}
+
+.petListContainer {
+  flex-basis: 75%
+}
+
+.childContainer {
+  flex-basis: 25%;
+  text-align: right
+}

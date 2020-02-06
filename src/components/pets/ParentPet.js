@@ -4,14 +4,14 @@ import { KidPetChoreContext } from "../chores/KidPetChoreProvider"
 import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
-import Button from '@material-ui/core/Button';
+import Typography from '@material-ui/core/Typography';
 
 export default ({ pet, history }) => {
   const { deleteKidPetChore } = useContext(KidPetChoreContext);
 
   return (
     <Card className="petCard">
-      <h3 className="pet__name">{pet.name}</h3>
+      <Typography className="pet__name">{pet.name}</Typography>
       {/* <img className="pet__pic">{pet.pic}</img> */}
       <img
         src={require("./plus.svg")}
@@ -29,6 +29,7 @@ export default ({ pet, history }) => {
           // }
           >
             {fca.chores.name} Due:{fca.dueDate} Assigned to:{fca.child.userName}
+            <CardActions>
             <img
               src={require("./edit.svg")}
               className="edit__icon"
@@ -43,6 +44,7 @@ export default ({ pet, history }) => {
                 deleteKidPetChore(fca);
               }}
             />
+            </CardActions>
           </li>
         ))}
       </ul>

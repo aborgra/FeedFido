@@ -10,6 +10,7 @@ import ChildList from "./kids/ChildList";
 import AddChildForm from "./kids/AddChildForm";
 import AddPetForm from "./pets/AddPetForm";
 import ChoresForm from "./chores/ChoresForm";
+import "./Fido.css";
 
 export default props => {
   const  {users}  = useContext(UserContext);
