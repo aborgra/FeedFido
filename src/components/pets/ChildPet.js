@@ -1,15 +1,18 @@
 import React, { useContext } from "react"
 import { Link } from "react-router-dom"
 import { KidPetChoreContext } from "../chores/KidPetChoreProvider";
+import { CardContent, CardActions, Card, Typography } from "@material-ui/core";
 
 
 export default ({pet, history}) => {
   const { patchKidPetChore } = useContext(KidPetChoreContext)
   const activeUserId = parseInt(localStorage.getItem("fido_user"));
 return (
-    <section className="petCard">
+    <Card className="petCard">
         <h3 className="pet__name">{pet.name}</h3>
         {/* <img className="pet__pic">{pet.pic}</img> */}
+
+        <CardContent>
         <ul className="pet__chores">
  
         {pet.foundChoresArray.map(fca => (
@@ -32,8 +35,8 @@ return (
         </li>))}
         </ul>
         
-
-    </section>
+        </CardContent>
+    </Card>
 )}
 
 

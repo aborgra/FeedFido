@@ -133,7 +133,8 @@ export default props => {
         </fieldset>
 
         <fieldset>
-          <checkbox>Recurring Event?</checkbox>
+          <label>Recurring Event</label>
+          <input type="checkbox"/>
         </fieldset>
 
         <div className="saveButtonContainer">

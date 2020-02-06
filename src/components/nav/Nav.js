@@ -12,7 +12,7 @@ const { users } = useContext(UserContext)
 
   return (
     <div className="navbar">
-      <h3 className="navbar__message">{activeUser.userName} - Welcome to Feed Fido!</h3>
+     <h3 className="navbar__message">{activeUser.userName} - Welcome to Feed Fido!</h3>
 {
     localStorage.getItem("fido_user")
         ?
