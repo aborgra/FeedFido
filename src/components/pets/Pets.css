@@ -3,5 +3,9 @@
 }
 
 .petCard {
-  
+  margin: 15pt
+}
+
+.choreCompleted {
+  text-decoration: line-through;
 }

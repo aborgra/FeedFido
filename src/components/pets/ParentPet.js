@@ -4,18 +4,20 @@ import { KidPetChoreContext } from "../chores/KidPetChoreProvider"
 import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
-import Button from '@material-ui/core/Button';
+import Typography from '@material-ui/core/Typography';
 
 export default ({ pet, history }) => {
   const { deleteKidPetChore } = useContext(KidPetChoreContext);
+  let choreItemCompleted = "ChoreNotCompleted"
+
 
   return (
     <Card className="petCard">
-      <h3 className="pet__name">{pet.name}</h3>
+      <Typography className="pet__name">{pet.name}</Typography>
       {/* <img className="pet__pic">{pet.pic}</img> */}
       <img
         src={require("./plus.svg")}
-        className="btn btn-light"
+        className="addPet"
         onClick={() => {
           history.push(`/addChore/${pet.id}`);
         }}
@@ -23,12 +25,11 @@ export default ({ pet, history }) => {
       <CardContent>
       <ul className="pet__chores">
         {pet.foundChoresArray.map(fca => (
-          <li
-          // if (fca.isCompleted == false) {
-          //   classList.add("completedChore")
-          // }
-          >
+         
+          <li className={fca.isCompleted ? (choreItemCompleted = "choreCompleted"):(choreItemCompleted = "notCompleted")}> 
+           
             {fca.chores.name} Due:{fca.dueDate} Assigned to:{fca.child.userName}
+            <CardActions>
             <img
               src={require("./edit.svg")}
               className="edit__icon"
@@ -43,7 +44,9 @@ export default ({ pet, history }) => {
                 deleteKidPetChore(fca);
               }}
             />
+            </CardActions>
           </li>
+          
         ))}
       </ul>
       </CardContent>
