@@ -11,7 +11,8 @@ export default props => {
   const { pets } = useContext(PetContext);
   const { kidPetChores } = useContext(KidPetChoreContext)
   const { chores } = useContext(ChoreContext)
-
+  const today = new Date()
+  const dayOfWeek = today.getDay()
 
   const activeUserId = parseInt(localStorage.getItem("fido_user"));
   // const activeUser = users.find(user => user.id === activeUserId) || {}
@@ -19,17 +20,18 @@ export default props => {
     pets.map(pet => {
       let allChildPetChores = []
       let foundPetChores = pet.kidPetChores.map(kpc => {
-        if (kpc.userId === activeUserId && kpc.isCompleted === false) {
+        if (kpc.userId === activeUserId && kpc.isCompleted === false && kpc.day === dayOfWeek) {
           kpc.chores = chores.find(chore => kpc.choreId === chore.id)
           allChildPetChores.push(kpc)}}) || []
       pet.foundChoresArray = allChildPetChores
       return pet}) || [];
 
-      const filteredPetChores = allPetChoresArray.filter (pc => pc.foundChoresArray.length !== 0
+      const filteredPetChores = allPetChoresArray.filter (pc => pc.day !== 0 
+        // && pc.day === dayOfWeek
         
       ) || []
 
- console.log(filteredPetChores)
+ console.log("filteredPetChored", filteredPetChores, dayOfWeek)
 
   return (
     <div className="childPets">

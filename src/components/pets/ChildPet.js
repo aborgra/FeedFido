@@ -10,10 +10,10 @@ return (
     <section className="petCard">
         <h3 className="pet__name">{pet.name}</h3>
         {/* <img className="pet__pic">{pet.pic}</img> */}
-        <ul className="pet__chores">Chores:
+        <ul className="pet__chores">
  
         {pet.foundChoresArray.map(fca => (
-        <li>{fca.chores.name}   Due:{fca.dueDate}
+        <li>{fca.chores.name}
         <input
           onClick={() => {
             const updatedKitPetChores = {

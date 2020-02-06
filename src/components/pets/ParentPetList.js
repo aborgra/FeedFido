@@ -12,7 +12,9 @@ export default props => {
   const { pets } = useContext(PetContext);
   const { kidPetChores } = useContext(KidPetChoreContext);
   const { chores } = useContext(ChoreContext);
-
+  const today = new Date()
+  const dayOfWeek = today.getDay()
+  
 
   const activeUserId = parseInt(localStorage.getItem("fido_user"));
   // const activeUser = users.find(user => user.id === activeUserId) || {}
@@ -33,7 +35,8 @@ export default props => {
             allChildPetChores.push(kpc);
           // }
         }) || [];
-      pet.foundChoresArray = allChildPetChores;
+        const dailyChores = allChildPetChores.filter(cpchore => cpchore.day === dayOfWeek)
+      pet.foundChoresArray = dailyChores;
       return pet;
     }) || [];
 console.log(allPetChoresArray)
