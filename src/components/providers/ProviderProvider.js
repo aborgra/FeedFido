@@ -7,13 +7,13 @@ import { KidPetChoreProvider } from "../chores/KidPetChoreProvider";
 export default props => {
   return (
     <>
-      <PetProvider>
-        <ChoreProvider>
-          <KidPetChoreProvider>
+      <KidPetChoreProvider>
+        <PetProvider>
+          <ChoreProvider>
             <UserProvider>{props.children}</UserProvider>
-          </KidPetChoreProvider>
-        </ChoreProvider>
-      </PetProvider>
+          </ChoreProvider>
+        </PetProvider>
+      </KidPetChoreProvider>
     </>
   );
 };

@@ -43,9 +43,7 @@ export default props => {
                   <>
                     <section className="childDashboardContainer">
                       <div className="petListContainer">
-                        <ProviderProvider>
                         <ChildPetList {...props} />
-                        </ProviderProvider>
                       </div>
                     </section>
                   </>

@@ -18,7 +18,6 @@ export default props => {
 
   
 
-      const [event, setEvent] = useState({})
       const [buttonClicked, setButtonClicked] = useState(false)
       const [singleChore, setSingleChore] = useState({});
       const activeUserId = parseInt(localStorage.getItem("fido_user"));
@@ -31,7 +30,7 @@ export default props => {
       const handleControlledInputChange = event => {
         const newSingleChore = Object.assign({}, singleChore);
         newSingleChore[event.target.name] = event.target.value;
-        setSingleChore(newSingleChore);
+        setSingleChore(newSingleChore)
       };
     
       const setDefaults = () => {
@@ -40,7 +39,9 @@ export default props => {
           console.log(kpcId, "kpcId");
           const selectedKidPetChore =
             kidPetChores.find(chore => chore.id === kpcId) || {};
-          setSingleChore(selectedKidPetChore);
+          setSingleChore(selectedKidPetChore)
+          console.log("selectedKidPetChore", selectedKidPetChore)
+
         }
       };
     
@@ -48,10 +49,7 @@ export default props => {
         setDefaults();
       }, [kidPetChores]);
     
-  
-     
-      let closingTimeButtonClicked = false
-  
+    
       const constructNewKidPetChore = () => {
         if (editMode) {
           editKidPetChore({
@@ -106,7 +104,7 @@ export default props => {
       
       <fieldset>
         <select
-          defaultValue={singleChore.choreId}
+          value={singleChore.choreId}
           name="choreId"
           id="choreId"
           className="form-control"
@@ -123,7 +121,7 @@ export default props => {
       </fieldset>
       <fieldset>
         <select
-          defaultValue={singleChore.userId}
+          value={singleChore.userId}
           name="userId"
           id="userId"
           className="form-control"
