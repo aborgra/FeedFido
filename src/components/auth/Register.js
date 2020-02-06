@@ -34,9 +34,9 @@ const Register = props => {
                             "Content-Type": "application/json"
                         },
                         body: JSON.stringify({
-                            email: email.current.value,
                             password: password.current.value,
-                            userName: userName.current.value
+                            userName: userName.current.value,
+                            parentId: 0
                         })
                     })
                         .then(_ => _.json())
@@ -64,14 +64,6 @@ const Register = props => {
                         className="form-control registerUser"
                         placeholder="Username"
                         required autoFocus />
-                </fieldset>
-                <fieldset className="registerEmailContainer">
-                    <label htmlFor="inputEmail"> Email address </label>
-                    <input ref={email} type="email"
-                        name="email"
-                        className="form-control registerEmail"
-                        placeholder="Email address"
-                        required />
                 </fieldset>
                 <fieldset className="registerPassContainer">
                     <label htmlFor="inputPassword"> Password </label>

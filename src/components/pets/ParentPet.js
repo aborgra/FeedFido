@@ -16,12 +16,17 @@ export default ({ pet, history }) => {
             </button>
       <ul className="pet__chores">
         {pet.foundChoresArray.map(fca => (
-          <li>
+
+          <li 
+          // if (fca.isCompleted == false) {
+          //   classList.add("completedChore")
+          // }
+          >
             {fca.chores.name} Due:{fca.dueDate} Assigned to:{fca.child.userName}
             <button
               className="btn btn-light"
               onClick={() => {
-                history.push(`/editChore/${pet.kidPetChores.id}`);
+                history.push(`/editChore/${fca.id}`);
               }}
             >
               Edit

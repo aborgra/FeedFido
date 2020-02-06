@@ -32,6 +32,16 @@ export const KidPetChoreProvider = (props) => {
     }).then(getKidPetChores);
   };
 
+  const patchKidPetChore = kidPetChore => {
+    return fetch(`http://localhost:8088/kidPetChores/${kidPetChore.id}`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(kidPetChore)
+    }).then(getKidPetChores);
+  };
+
   const deleteKidPetChore = kidPetChore => {
     return fetch(`http://localhost:8088/kidPetChores/${kidPetChore.id}`, {
       method: "DELETE",
@@ -50,7 +60,7 @@ export const KidPetChoreProvider = (props) => {
 
   return (
     <KidPetChoreContext.Provider value = {{
-      kidPetChores, addKidPetChore, deleteKidPetChore, editKidPetChore
+      kidPetChores, addKidPetChore, deleteKidPetChore, editKidPetChore, patchKidPetChore
     }}>
         {props.children}
     </KidPetChoreContext.Provider>
