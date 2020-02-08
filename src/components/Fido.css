@@ -1,14 +1,28 @@
 .parentDashboardContainer {
   display: flex;
   flex-direction: row;
-  padding-top: 100px
+  padding-top: 75px;
+  background-color: rgb(235, 121, 15);
+
 }
 
 .petListContainer {
-  flex-basis: 75%
+  flex-basis: 90%;
 }
 
 .childContainer {
   flex-basis: 25%;
   text-align: right
+}
+
+.formContainer {
+  display: flex;
+  flex-direction: row;
+  padding-top: 75px
+}
+
+.childDashboardContainer {
+  display: flex;
+  flex-direction: row;
+  padding-top: 75px
 }
