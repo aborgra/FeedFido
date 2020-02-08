@@ -1,11 +1,45 @@
 .addPetIcon {
-  max-width: 40px;
+  max-width: 50px;
+  margin: 5pt;
+  margin-left: 5pt;
 }
 
 .petCard {
   margin: 15pt
 }
 
+.petChore{
+  display: flex;
+  flex-direction: column;
+}
+
+.choreName{
+  font-weight: bold;
+  font-size: 15pt;
+}
+
+.parentIcons{
+  display: flex;
+ justify-content: flex-end;
+}
+
 .choreCompleted {
   text-decoration: line-through;
+}
+
+.petImage {
+  max-width: 50px;
+  max-height: 50px
+}
+
+.pet__header {
+  padding-top: 8pt;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.showChildrenIcon {
+  max-width: 50px;
+  margin: 5pt;
+  margin-left: 5pt;
 }

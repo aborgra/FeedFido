@@ -11,6 +11,7 @@ import AddChildForm from "./kids/AddChildForm";
 import AddPetForm from "./pets/AddPetForm";
 import ChoresForm from "./chores/ChoresForm";
 import "./Fido.css";
+import { Container } from "@material-ui/core";
 
 export default props => {
   const  {users}  = useContext(UserContext);
@@ -29,24 +30,25 @@ export default props => {
               if (activeUser.parentId === 0) {
                 return (
                   <>
-                    <section className="parentDashboardContainer">
+                    <Container className="parentDashboardContainer">
                       <div className="petListContainer">
                         <ParentPetList {...props} />
                       </div>
-                      <div className="childContainer">
+
+                      {/* <div className="childContainer">
                         <ChildList {...props} />
-                      </div>
-                    </section>
+                      </div> */}
+                    </Container>
                   </>
                 );
               } else {
                 return (
                   <>
-                    <section className="childDashboardContainer">
+                    <Container className="childDashboardContainer">
                       <div className="petListContainer">
                         <ChildPetList {...props} />
                       </div>
-                    </section>
+                    </Container>
                   </>
                 );
               }
@@ -54,12 +56,13 @@ export default props => {
             return <Login {...props} />;
           }}
         />
-       
+       <section className="formContainer">
+       <Route exact path="/ChildList" render={props => <ChildList {...props} />} />
         <Route exact path="/addPet" render={props => <AddPetForm {...props} />} />
         <Route exact path="/addChore/:petId(\d+)" render={props => <ChoresForm {...props} />} />
         <Route exact path="/addChild" render={props => <AddChildForm {...props} />} />
         <Route exact path="/editChore/:kpcId(\d+)" render={props => <ChoresForm {...props} />} />
-
+        </section>
         {/* <Route exact path="/tasks/create" render={props => <TaskForm {...props} />} />
         <Route exact path="/editNews/:newsId(\d+)" render={props => <NewsForm {...props} />} />
         <Route exact path="/tasks/edit/:tasksId(\d+)" render={props => <TaskForm {...props} />} />
