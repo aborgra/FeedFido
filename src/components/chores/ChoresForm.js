@@ -55,15 +55,15 @@ export default props => {
   const constructNewChore = () => {
     let choreName = newChore.current.value
     console.log("choreName", choreName)
-    // const foundChore = chores.find(chore => chore.name === choreName) || {}
-    // console.log("foundChore", foundChore)
-    // if(foundChore === {}){
+    const foundChore = chores.find(chore => chore.name === choreName)
+    console.log("foundChore", foundChore)
+    if(foundChore === undefined){
     addChore({
       name: choreName
     }).then(handleClose)
-  // }else(
-  //   window.alert("Chore already exists")
-  // )
+  }else(
+    window.alert("Chore already exists")
+  )
 }
 
   const constructNewKidPetChore = () => {
