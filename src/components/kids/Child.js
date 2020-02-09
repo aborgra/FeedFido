@@ -9,7 +9,7 @@ export default ({ child, history }) => {
       <button
         className="btn btn-light"
         onClick={() => {
-          history.push(`/kids/graph/${child.id}`);
+          history.push(`/child/graph/${child.id}`);
         }}
       >
         Graph

@@ -12,6 +12,7 @@ import AddPetForm from "./pets/AddPetForm";
 import ChoresForm from "./chores/ChoresForm";
 import "./Fido.css";
 import { Container } from "@material-ui/core";
+import ChartList from "./charts/ChartList";
 
 export default props => {
   const  {users}  = useContext(UserContext);
@@ -57,6 +58,7 @@ export default props => {
           }}
         />
        <section className="formContainer">
+       <Route exact path="/child/graph/:childId(\d+)" render={props => <ChartList {...props} />} />
        <Route exact path="/ChildList" render={props => <ChildList {...props} />} />
         <Route exact path="/addPet" render={props => <AddPetForm {...props} />} />
         <Route exact path="/addChore/:petId(\d+)" render={props => <ChoresForm {...props} />} />
