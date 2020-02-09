@@ -2,11 +2,18 @@ import React, { useContext, useState, useEffect, useRef } from "react";
 import { UserContext } from "../users/UserProvider";
 import { ChoreContext } from "./ChoreProvider";
 import { KidPetChoreContext } from "./KidPetChoreProvider";
-import { Container } from "@material-ui/core";
+import { Container, Select, Checkbox } from "@material-ui/core";
 import DialogTitle from '@material-ui/core/DialogTitle';
 import Dialog from '@material-ui/core/Dialog';
 import Button from '@material-ui/core/Button';
+import FormControl from '@material-ui/core/FormControl';
 import TextField from '@material-ui/core/TextField';
+import InputLabel from '@material-ui/core/InputLabel';
+import MenuItem from '@material-ui/core/MenuItem';
+
+
+
+
 
 
 export default props => {
@@ -107,11 +114,11 @@ export default props => {
     
     return (
       <Dialog onClose={handleClose} aria-labelledby="simple-dialog-title" open={open}>
-        <DialogTitle id="simple-dialog-title">Add Chore Option</DialogTitle>
-        <form>
-          <input type="text" id="standard" required autoFocus label="Add a Chore Option" variant="outlined" name="name" defaultValue={""} ref={newChore}  
+        <DialogTitle id="simple-dialog-title">Add Chore MenuItem</DialogTitle>
+        <FormControl>
+          <input id="standard-uncontrolled" className="form-group addChoreInput" type="text" id="standard" required autoFocus label="Add a Chore" variant="outlined" name="name" defaultValue={""} ref={newChore}  
           />
-        </form>
+        </FormControl>
         <Button className="saveChoreButton" onClick={(evt) => {
           evt.preventDefault();
           constructNewChore()
@@ -143,68 +150,74 @@ export default props => {
   return (
     <>
       <Container>
-        <form className="choreForm">
+        <FormControl className="choreForm">
           <h2 className="choreForm__title">
             {editMode ? "Edit Chore" : "Add Chore"}
           </h2>
 
-          <fieldset>
-            <select
+          <FormControl>
+            <InputLabel>Select a Chore</InputLabel>
+            <Select
               value={singleChore.choreId}
               name="choreId"
               id="choreId"
               className="form-control"
               onChange={handleControlledInputChange}
             >
-              <option value="0">Select a Chore</option>
+              {/* <MenuItem value="0">Select a Chore</MenuItem> */}
               {chores.map(chore => (
-                <option key={chore.id} value={chore.id}>
+                <MenuItem key={chore.id} value={chore.id}>
                   {chore.name}
-                </option>
+                </MenuItem>
               ))}
-            </select>
-            <Button className="addChoreOption" onClick={handleClickOpen}>Add Chore</Button>
+            </Select>
+            <Button className="addChoreMenuItem" onClick={handleClickOpen}>Add Chore</Button>
             <SimpleDialog  open={open} onClose={handleClose} />
-          </fieldset>
-          <fieldset>
-            <select
+          </FormControl>
+          <FormControl>
+          <InputLabel>Select a Child</InputLabel>
+            <Select
               value={singleChore.userId}
               name="userId"
               id="userId"
               className="form-control"
               onChange={handleControlledInputChange}
+              placeholder="Select a Child"
             >
-              <option value="0">Select a Child</option>
+              {/* <MenuItem value="0">Select a Child</MenuItem> */}
               {userChildren.map(child => (
-                <option key={child.id} value={child.id}>
+                <MenuItem key={child.id} value={child.id}>
                   {child.userName}
-                </option>
+                </MenuItem>
               ))}
-            </select>
-          </fieldset>
+            </Select>
+          </FormControl>
 
-          <fieldset>
-            <select
+          <FormControl>
+          <InputLabel>Select Day</InputLabel>
+
+            <Select
               value={singleChore.day}
               name="day"
               id="day"
               className="form-control"
               onChange={handleControlledInputChange}
+              placeholder="Select Day"
             >
-              <option value="0">Sunday</option>
-              <option value="1">Monday</option>
-              <option value="2">Tuesday</option>
-              <option value="3">Wednesday</option>
-              <option value="4">Thursday</option>
-              <option value="5">Friday</option>
-              <option value="6">Saturday</option>
-            </select>
-          </fieldset>
+              <MenuItem value="0">Sunday</MenuItem>
+              <MenuItem value="1">Monday</MenuItem>
+              <MenuItem value="2">Tuesday</MenuItem>
+              <MenuItem value="3">Wednesday</MenuItem>
+              <MenuItem value="4">Thursday</MenuItem>
+              <MenuItem value="5">Friday</MenuItem>
+              <MenuItem value="6">Saturday</MenuItem>
+            </Select>
+          </FormControl>
 
-          <fieldset>
+          <FormControl>
             <label>Recurring Event</label>
-            <input type="checkbox" />
-          </fieldset>
+            <Checkbox type="checkbox" />
+          </FormControl>
 
           <div className="saveButtonContainer">
             <Button
@@ -224,7 +237,7 @@ export default props => {
               Close
             </Button>
           </div>
-        </form>
+        </FormControl>
       </Container>
     </>
   );

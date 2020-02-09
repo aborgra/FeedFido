@@ -1,6 +1,7 @@
 import React, { useRef } from "react"
 import { Link } from "react-router-dom";
 import "./KidLogin.css"
+import { Button } from "@material-ui/core";
 
 
 const KidLogin = props => {
@@ -42,27 +43,25 @@ const KidLogin = props => {
             <section>
                 <form className="form--login" onSubmit={handleLogin}>
                     <h2>Welcome to Feed Fido!</h2>
-                    <fieldset className="logInUserContainer">
+                    <div className="logInUserContainer">
                         <label htmlFor="inputUserName"> Username </label>
                         <input ref={userName} type="userName"
                             id="userName"
                             className="form-control logInUser"
                             placeholder="Username"
                             required autoFocus />
-                    </fieldset>
-                    <fieldset className="logInPassContainer">
+                    </div>
+                    <div className="logInPassContainer">
                         <label htmlFor="inputPassword"> Password </label>
                         <input ref={password} type="password"
                             id="password"
                             className="form-control logInPass"
                             placeholder="Password"
                             required />
-                    </fieldset>
-                    <fieldset>
-                        <button className="btn btn-primary logInButton" type="submit">
+                    </div>
+                        <Button className="logInButton" variant="contained" type="submit">
                             Sign in
-                    </button>
-                    </fieldset>
+                    </Button>
                 </form>
             </section>
         </main>

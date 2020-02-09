@@ -1,6 +1,7 @@
 import React, { useRef } from "react"
 import { Link } from "react-router-dom";
 import "./Login.css"
+import { FormControl, Button } from "@material-ui/core";
 
 
 const Login = props => {
@@ -39,31 +40,32 @@ const Login = props => {
 
     return (
         <main className="form-group logInFormContainer">
+                        <h1>Welcome to Feed Fido!</h1>
+
             <section>
+
                 <form className="form--login" onSubmit={handleLogin}>
-                    <h1>Welcome to Feed Fido!</h1>
                     <h2>Please Sign In</h2>
-                    <fieldset className="logInUserContainer">
-                        <label htmlFor="inputUserName"> Username </label>
+                    <div className="logInUserContainer">
+                        {/* <label htmlFor="inputUserName"> Username </label> */}
                         <input ref={userName} type="userName"
                             id="userName"
-                            className="form-control logInUser"
+                            className="logInUser"
                             placeholder="Username"
-                            required autoFocus />
-                    </fieldset>
-                    <fieldset className="logInPassContainer">
-                        <label htmlFor="inputPassword"> Password </label>
+                            required
+                            autoFocus />
+                            </div>
+                    <div className="logInPassContainer">
+                        {/* <label htmlFor="inputPassword"> Password </label> */}
                         <input ref={password} type="password"
                             id="password"
-                            className="form-control logInPass"
+                            className="logInPass"
                             placeholder="Password"
                             required />
-                    </fieldset>
-                    <fieldset>
-                        <button className="btn btn-primary logInButton" type="submit">
+                            </div>
+                        <Button className="logInButton" variant="contained" type="submit">
                             Sign in
-                    </button>
-                    </fieldset>
+                    </Button>
                 </form>
             </section>
             <section className="link--register">

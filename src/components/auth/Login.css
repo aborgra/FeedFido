@@ -13,10 +13,19 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 25px;
   max-width: 450px;
-  background-color: #03679E;
+}
+
+.form--login{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 100px;
+  margin-bottom: 50px;
+  width: 300px;
+  background-color: rgb(255, 255, 255);
   padding: 15pt;
+  border:1pt solid gray;
   border-radius: 5pt;
 }
 
@@ -28,8 +37,9 @@
 }
 
 .logInUser{
-  align-items: center;
-  max-width: 500px;
+  height: 25px;
+  border-radius: 3pt;
+  padding: 2px;
 }
 
 .logInButtons{
@@ -46,6 +56,12 @@
 .registerPassContainer{
   margin-top: 20px;
 
+}
+
+.logInPass{
+  height: 25px;
+  border-radius: 3pt;
+  padding: 2px;
 }
 
 .registerEmailContainer{
@@ -73,9 +89,10 @@
 }
 
 .logInBackground {
-  background-color: rgb(255, 255, 255);
+  background-color: #29b6f6;
   height: 700px;
   display: flex;
   align-items: center;
   justify-content: center;
+  margin:-10%
 }

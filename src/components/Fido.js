@@ -35,7 +35,10 @@ export default () => (
             </>
           );
         } else {
-          return <Redirect to="/launchpad" />;
+          return ( 
+          <div className="launchpadContainer">
+          <Redirect to="/launchpad" />
+          </div>)
         }
       }}
     />
