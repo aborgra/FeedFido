@@ -2,13 +2,12 @@ import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { KidPetChoreContext } from "../chores/KidPetChoreProvider";
 import { CardContent, CardActions, Card, Typography } from "@material-ui/core";
-import Checkbox from '@material-ui/core/Checkbox';
-import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
-import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction';
-import ListItemText from '@material-ui/core/ListItemText';
-
+import Checkbox from "@material-ui/core/Checkbox";
+import List from "@material-ui/core/List";
+import ListItem from "@material-ui/core/ListItem";
+import ListItemIcon from "@material-ui/core/ListItemIcon";
+import ListItemSecondaryAction from "@material-ui/core/ListItemSecondaryAction";
+import ListItemText from "@material-ui/core/ListItemText";
 
 export default ({ pet, history }) => {
   const { patchKidPetChore } = useContext(KidPetChoreContext);
@@ -32,6 +31,11 @@ export default ({ pet, history }) => {
     }
   };
 
+  var options = { year: "numeric", month: "numeric", day: "numeric" };
+  let todayDate = new Date();
+  let formatedDate = todayDate.toLocaleString("en-US", options);
+  let [useDate, foo] = formatedDate.split(",");
+
   return (
     <Card className="petCard">
       <h3 className="pet__name">{pet.name}</h3>
@@ -52,13 +56,12 @@ export default ({ pet, history }) => {
                     dueDate: fca.dueDate,
                     recurrance: fca.recurrance,
                     isCompleted: true,
-                    dateCompleted: new Date()
+                    dateCompleted: useDate
                   };
                   patchKidPetChore(updatedKitPetChores).then(() =>
                     history.push("/")
                   );
                 }}
-               
               ></Checkbox>
             </ListItem>
           ))}
