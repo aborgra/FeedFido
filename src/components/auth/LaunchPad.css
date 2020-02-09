@@ -1,0 +1,30 @@
+.logInBackground{
+  background-color: white;
+}
+
+.launchpad__Container{
+  display: flex;
+  flex-direction: column;
+}
+
+.launchpad__title {
+  margin-bottom: 100px;
+  margin-top: -25%
+}
+
+.launchpad__form {
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  /* text-align: center; */
+  margin: 10%;
+}
+
+.launchpad__choice{
+  text-align: center;
+  margin-bottom: 25pt;
+}
+
+.launchpadButton{
+  margin-bottom: 50px;
+}

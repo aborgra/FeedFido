@@ -26,7 +26,7 @@ export default props => {
       pet.foundChoresArray = allChildPetChores
       return pet}) || [];
 
-      const filteredPetChores = allPetChoresArray.filter (pc => pc.day !== 0 
+      const filteredPetChores = allPetChoresArray.filter (pc => pc.foundChoresArray.length !== 0 
         // && pc.day === dayOfWeek
         
       ) || []

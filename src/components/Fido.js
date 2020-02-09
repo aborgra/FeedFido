@@ -7,8 +7,8 @@ import Register from "./auth/Register";
 import "./Fido.css";
 import ProviderProvider from "./providers/ProviderProvider";
 import KidLogin from "./auth/KidLogin";
+// import GlobalStyles from '../assets/Global.css';
 
-// import { Button , Alert, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
 import Launchpad from "./auth/LaunchPad";
 
 export default () => (
@@ -35,7 +35,10 @@ export default () => (
             </>
           );
         } else {
-          return <Redirect to="/launchpad" />;
+          return ( 
+          <div className="launchpadContainer">
+          <Redirect to="/launchpad" />
+          </div>)
         }
       }}
     />

@@ -15,7 +15,7 @@ const { users } = useContext(UserContext)
   return (
     <div className="navbar">
       <img className="backIcon"src={require("../pics/undo.svg")}
-      // onClick={props.history.push("/")}
+      onClick={() => props.history.push("/")}
       />
       <h2 className="siteName">Feed Fido</h2>
      {/* <h3 className="navbar__message">{activeUser.userName} - Welcome to Feed Fido!</h3> */}
