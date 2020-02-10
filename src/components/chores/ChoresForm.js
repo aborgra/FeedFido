@@ -82,7 +82,7 @@ export default props => {
         userId: parseInt(singleChore.userId),
         choreId: parseInt(singleChore.choreId),
         day: parseInt(singleChore.day),
-        recurrance: "Daily",
+        recurrance: (singleChore.recurrance),
         isCompleted: false
       }).then(() => props.history.push("/"));
     } else {
@@ -96,7 +96,7 @@ export default props => {
         userId: parseInt(singleChore.userId),
         choreId: parseInt(singleChore.choreId),
         day: parseInt(singleChore.day),
-        recurrance: "Daily",
+        recurrance: (singleChore.recurrance),
         isCompleted: false
       }).then(() => props.history.push("/"));
     }
@@ -212,8 +212,22 @@ export default props => {
           </FormGroup>
 
           <FormGroup>
-            <Label>Recurring Event</Label>
-            <Input type="checkbox" />
+          <Label>Recurring Event</Label>
+            <Input
+              type="select"
+              value={singleChore.recurrance}
+              name="recurrance"
+              id="recurrance"
+              className="form-control"
+              onChange={handleControlledInputChange}
+              placeholder="Select Frequency"
+            >
+              <option value="0">None</option>
+              <option value="daily">Daily</option>
+              <option value="weekly">Weekly</option>
+
+
+            </Input>
           </FormGroup>
 
           <div className="saveButtonContainer">

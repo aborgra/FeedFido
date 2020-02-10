@@ -90,7 +90,7 @@ export default ({ pet, history }) => {
                         recurrance: fca.recurrance,
                         isCompleted: false
                       })
-                    } else {
+                    } else if (fca.recurrance === "daily"){
                       addKidPetChore( {
                         petId: pet.id,
                         userId: activeUserId,
@@ -100,7 +100,6 @@ export default ({ pet, history }) => {
                         recurrance: fca.recurrance,
                         isCompleted: false
                       })
-                    
                     }
                     history.push("/");
                   });
