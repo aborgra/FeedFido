@@ -1,7 +1,16 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { KidPetChoreContext } from "../chores/KidPetChoreProvider";
-import { CardContent, CardActions, Card, Typography, Input, CardBody, ListGroup, ListGroupItem } from "reactstrap";
+import {
+  CardContent,
+  CardActions,
+  Card,
+  Typography,
+  Input,
+  CardBody,
+  ListGroup,
+  ListGroupItem
+} from "reactstrap";
 import List from "reactstrap";
 import ListItem from "reactstrap";
 import ListItemIcon from "reactstrap";
@@ -9,7 +18,7 @@ import ListItemSecondaryAction from "reactstrap";
 import ListItemText from "reactstrap";
 
 export default ({ pet, history }) => {
-  const { patchKidPetChore } = useContext(KidPetChoreContext);
+  const { patchKidPetChore, addKidPetChore } = useContext(KidPetChoreContext);
   const activeUserId = parseInt(localStorage.getItem("fido_user"));
 
   const petType = type => {
@@ -35,7 +44,17 @@ export default ({ pet, history }) => {
   let formatedDate = todayDate.toLocaleString("en-US", options);
   let [useDate, foo] = formatedDate.split(",");
 
-  
+  let [scheduledDateWeekly, not] = new Date(
+    Date.now() + 7 * 24 * 60 * 60 * 1000
+  )
+    .toLocaleString("en-US", options)
+    .split(",");
+  let [scheduledDateDaily, test] = new Date(
+    Date.now() + 1 * 24 * 60 * 60 * 1000
+  )
+    .toLocaleString("en-US", options)
+    .split(",");
+  console.log("weekly daily", scheduledDateWeekly, scheduledDateDaily);
 
   return (
     <Card className="petCard">
@@ -48,21 +67,43 @@ export default ({ pet, history }) => {
             <ListGroupItem>
               {fca.chores.name}
               <Input
-              type="checkbox"
+                type="checkbox"
                 onClick={() => {
                   const updatedKitPetChores = {
                     id: fca.id,
-                    petId: pet.id,
-                    userId: activeUserId,
-                    choreId: fca.chores.id,
-                    dueDate: fca.dueDate,
-                    recurrance: fca.recurrance,
+                    // petId: pet.id,
+                    // userId: activeUserId,
+                    // choreId: fca.chores.id,
+                    // dueDate: fca.dueDate,
+                    // recurrance: fca.recurrance,
                     isCompleted: true,
                     dateCompleted: useDate
                   };
-                  patchKidPetChore(updatedKitPetChores).then(() =>
-                    history.push("/")
-                  );
+                  patchKidPetChore(updatedKitPetChores).then(() => {
+                    if (fca.recurrance === "weekly") {
+                      addKidPetChore( {
+                        petId: pet.id,
+                        userId: activeUserId,
+                        choreId: fca.chores.id,
+                        day: fca.day,
+                        schedDate: scheduledDateWeekly,
+                        recurrance: fca.recurrance,
+                        isCompleted: false
+                      })
+                    } else {
+                      addKidPetChore( {
+                        petId: pet.id,
+                        userId: activeUserId,
+                        choreId: fca.chores.id,
+                        day: fca.day,
+                        schedDate: scheduledDateDaily,
+                        recurrance: fca.recurrance,
+                        isCompleted: false
+                      })
+                    
+                    }
+                    history.push("/");
+                  });
                 }}
               ></Input>
             </ListGroupItem>

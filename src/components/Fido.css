@@ -1,10 +1,10 @@
 .parentDashboardContainer {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   margin: auto;
   padding-top: 75px;
   background-color: #ffa726;
-  max-width: 100%;
+  min-width: 100%;
   height: auto;
 }
 
