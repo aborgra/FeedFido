@@ -42,12 +42,12 @@ const { users } = useContext(UserContext)
 {
     localStorage.getItem("fido_user")
         ?
-          <Button variant="contained" className= "logoutButton" onClick={e => {
+          <Button className= "logoutButton btn btn-light" onClick={e => {
                     e.preventDefault()
                     localStorage.removeItem("fido_user")
                     props.history.push("/")
                 }}>
-            Log Out
+                  Logout
           </Button>
   
        
