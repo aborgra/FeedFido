@@ -1,45 +1,53 @@
-.addPetIcon {
-  max-width: 50px;
-  margin: 5pt;
-  margin-left: 5pt;
-}
+
 
 .petCard {
-  margin: 15pt
+  margin: 15pt;
+  -webkit-box-shadow: 10px 10px 14px -3px rgba(0, 0, 0, 0.66) !important;
+  -moz-box-shadow: 10px 10px 14px -3px rgba(0, 0, 0, 0.66)!important;
+  box-shadow: 10px 10px 14px -3px rgba(0, 0, 0, 0.66) !important;
 }
 
-.petChore{
+.petChore {
   display: flex;
   flex-direction: column;
 }
 
-.choreName{
+.choreName {
   font-weight: bold;
   font-size: 15pt;
 }
 
-.parentIcons{
+.parentIcons {
   display: flex;
- justify-content: flex-end;
+  justify-content: flex-end;
 }
 
 .choreCompleted {
-  text-decoration: line-through !important
+  text-decoration: line-through !important;
 }
 
 .petImage {
   max-width: 50px;
-  max-height: 50px
+  max-height: 50px;
+  margin-top: auto;
 }
 
 .pet__header {
   padding-top: 8pt;
   display: flex;
   justify-content: space-evenly;
+  font-size: 24px;
+  margin-top: auto;
+  border-bottom: 1pt solid gray;
 }
 
-.showChildrenIcon {
-  max-width: 50px;
-  margin: 5pt;
-  margin-left: 5pt;
+
+
+.addPetButtonContainer {
+  text-align: center;
+  margin-top: 10pt;
+}
+
+.pet__name {
+  margin-top: 0px;
 }

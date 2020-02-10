@@ -1,7 +1,7 @@
 import React, { useRef } from "react"
 import { Link } from "react-router-dom";
 import "./KidLogin.css"
-import { Button } from "@material-ui/core";
+import { Button } from "reactstrap";
 
 
 const KidLogin = props => {

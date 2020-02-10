@@ -26,23 +26,26 @@ export default props => {
       pet.foundChoresArray = allChildPetChores
       return pet}) || [];
 
-      const filteredPetChores = allPetChoresArray.filter (pc => pc.foundChoresArray.length !== 0 
-        // && pc.day === dayOfWeek
-        
-      ) || []
+      const filteredPetChores = allPetChoresArray.filter (pc => pc.foundChoresArray.length !== 0) || []
 
- console.log("filteredPetChored", filteredPetChores, dayOfWeek)
+ console.log("filteredPetChores", filteredPetChores, dayOfWeek)
+
+const childList = filteredPetChores.map(fpc => {
+  return (
+    <ChildPet {...props}
+      key={fpc.id}
+      pet={fpc}
+    />
+  );
+})
+
+const message = "You Have No Chores For Today"
+ 
 
   return (
     <div className="childPets">
-      {filteredPetChores.map(fpc => {
-        return (
-          <ChildPet {...props}
-            key={fpc.id}
-            pet={fpc}
-          />
-        );
-      })}
+      {filteredPetChores.length === 0 ? (<div className="childMessage">{message}</div>):(<div className="childListContainer">{childList}</div>)}
+      
     </div>
   );
 };

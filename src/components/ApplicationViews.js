@@ -11,7 +11,7 @@ import AddChildForm from "./kids/AddChildForm";
 import AddPetForm from "./pets/AddPetForm";
 import ChoresForm from "./chores/ChoresForm";
 import "./Fido.css";
-import { Container } from "@material-ui/core";
+import { Container } from "reactstrap";
 import ChartList from "./charts/ChartList";
 
 export default props => {
@@ -57,14 +57,12 @@ export default props => {
             return <Login {...props} />;
           }}
         />
-       <section className="formContainer">
        <Route exact path="/child/graph/:childId(\d+)" render={props => <ChartList {...props} />} />
        <Route exact path="/ChildList" render={props => <ChildList {...props} />} />
         <Route exact path="/addPet" render={props => <AddPetForm {...props} />} />
         <Route exact path="/addChore/:petId(\d+)" render={props => <ChoresForm {...props} />} />
         <Route exact path="/addChild" render={props => <AddChildForm {...props} />} />
         <Route exact path="/editChore/:kpcId(\d+)" render={props => <ChoresForm {...props} />} />
-        </section>
         {/* <Route exact path="/tasks/create" render={props => <TaskForm {...props} />} />
         <Route exact path="/editNews/:newsId(\d+)" render={props => <NewsForm {...props} />} />
         <Route exact path="/tasks/edit/:tasksId(\d+)" render={props => <TaskForm {...props} />} />

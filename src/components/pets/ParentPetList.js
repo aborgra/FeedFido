@@ -5,10 +5,7 @@ import ParentPet from "./ParentPet";
 import { UserContext } from "../users/UserProvider";
 import { KidPetChoreContext } from "../chores/KidPetChoreProvider";
 import { ChoreContext } from "../chores/ChoreProvider";
-import Drawer from "@material-ui/core/Drawer";
-import toggleDrawer from "@material-ui/core/Drawer";
-import sideList from "@material-ui/core/Drawer";
-import state from "@material-ui/core/Drawer";
+
 
 export default props => {
   const { users } = useContext(UserContext);
@@ -71,20 +68,6 @@ export default props => {
   return (
     <>
       <section className="parentPets">
-        {/* {renderDrawer()} */}
-
-        <div className="parentIcons">
-          <img
-            className="addPetIcon"
-            src={require("../pics/veterinary.svg")}
-            onClick={() => props.history.push("/addPet")}
-          />
-          <img
-            className="showChildrenIcon"
-            src={require("../pics/boy.svg")}
-            onClick={() => props.history.push("/ChildList")}
-          />
-        </div>
         <div className="pets__list">
           {allPetChoresArray.map(pc => {
             return <ParentPet {...props} key={pc.id} pet={pc} />;
