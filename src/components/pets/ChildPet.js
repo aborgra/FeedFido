@@ -1,13 +1,12 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { KidPetChoreContext } from "../chores/KidPetChoreProvider";
-import { CardContent, CardActions, Card, Typography } from "@material-ui/core";
-import Checkbox from "@material-ui/core/Checkbox";
-import List from "@material-ui/core/List";
-import ListItem from "@material-ui/core/ListItem";
-import ListItemIcon from "@material-ui/core/ListItemIcon";
-import ListItemSecondaryAction from "@material-ui/core/ListItemSecondaryAction";
-import ListItemText from "@material-ui/core/ListItemText";
+import { CardContent, CardActions, Card, Typography, Input, CardBody, ListGroup, ListGroupItem } from "reactstrap";
+import List from "reactstrap";
+import ListItem from "reactstrap";
+import ListItemIcon from "reactstrap";
+import ListItemSecondaryAction from "reactstrap";
+import ListItemText from "reactstrap";
 
 export default ({ pet, history }) => {
   const { patchKidPetChore } = useContext(KidPetChoreContext);
@@ -43,12 +42,13 @@ export default ({ pet, history }) => {
       <h3 className="pet__name">{pet.name}</h3>
       <div>{petType(pet.type)}</div>
 
-      <CardContent>
-        <List className="pet__chores">
+      <CardBody>
+        <ListGroup className="pet__chores">
           {pet.foundChoresArray.map(fca => (
-            <ListItem>
+            <ListGroupItem>
               {fca.chores.name}
-              <Checkbox
+              <Input
+              type="checkbox"
                 onClick={() => {
                   const updatedKitPetChores = {
                     id: fca.id,
@@ -64,11 +64,11 @@ export default ({ pet, history }) => {
                     history.push("/")
                   );
                 }}
-              ></Checkbox>
-            </ListItem>
+              ></Input>
+            </ListGroupItem>
           ))}
-        </List>
-      </CardContent>
+        </ListGroup>
+      </CardBody>
     </Card>
   );
 };

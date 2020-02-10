@@ -1,16 +1,8 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { KidPetChoreContext } from "../chores/KidPetChoreProvider";
-import Card from "@material-ui/core/Card";
-import CardActions from "@material-ui/core/CardActions";
-import CardContent from "@material-ui/core/CardContent";
-import Typography from "@material-ui/core/Typography";
-import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
-import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction';
-import ListItemText from '@material-ui/core/ListItemText';
-import Checkbox from '@material-ui/core/Checkbox';
+import { Card, ListGroup, ListGroupItem } from "reactstrap";
+
 
 export default ({ pet, history }) => {
   const { deleteKidPetChore } = useContext(KidPetChoreContext);
@@ -51,9 +43,9 @@ export default ({ pet, history }) => {
       />
       </div>
       <section>
-        <List className="pet__chores">
+        <ListGroup className="pet__chores">
           {pet.foundChoresArray.map(fca => (
-            <ListItem
+            <ListGroupItem
               className={
                 fca.isCompleted
                   ? (choreItemCompleted = "choreCompleted petChore")
@@ -61,7 +53,7 @@ export default ({ pet, history }) => {
               }
             >
               <div className="choreName">{fca.chores.name}</div><div>{fca.child.userName}</div>
-              <CardActions>
+              <section>
                 <img
                   src={require("./edit.svg")}
                   className="edit__icon"
@@ -76,10 +68,10 @@ export default ({ pet, history }) => {
                     deleteKidPetChore(fca);
                   }}
                 />
-              </CardActions>
-            </ListItem>
+              </section>
+            </ListGroupItem>
           ))}
-        </List>
+        </ListGroup>
       </section>
     </Card>
   );

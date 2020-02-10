@@ -5,10 +5,7 @@ import ParentPet from "./ParentPet";
 import { UserContext } from "../users/UserProvider";
 import { KidPetChoreContext } from "../chores/KidPetChoreProvider";
 import { ChoreContext } from "../chores/ChoreProvider";
-import Drawer from "@material-ui/core/Drawer";
-import toggleDrawer from "@material-ui/core/Drawer";
-import sideList from "@material-ui/core/Drawer";
-import state from "@material-ui/core/Drawer";
+
 
 export default props => {
   const { users } = useContext(UserContext);

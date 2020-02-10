@@ -2,14 +2,14 @@ import React, { useContext, useState, useEffect, useRef } from "react";
 import { UserContext } from "../users/UserProvider";
 import { ChoreContext } from "./ChoreProvider";
 import { KidPetChoreContext } from "./KidPetChoreProvider";
-import { Container, Select, Checkbox } from "@material-ui/core";
-import DialogTitle from '@material-ui/core/DialogTitle';
-import Dialog from '@material-ui/core/Dialog';
-import Button from '@material-ui/core/Button';
-import FormControl from '@material-ui/core/FormControl';
-import TextField from '@material-ui/core/TextField';
-import InputLabel from '@material-ui/core/InputLabel';
-import MenuItem from '@material-ui/core/MenuItem';
+import { Container, FormGroup, Label, Form, Modal, ModalHeader, Input } from "reactstrap";
+import {DialogTitle} from 'reactstrap';
+import {Dialog} from 'reactstrap';
+import {Button} from 'reactstrap';
+import {TextField} from 'reactstrap';
+import {option} from 'reactstrap';
+import {Select} from 'reactstrap';
+
 
 
 
@@ -60,14 +60,15 @@ export default props => {
   }, [kidPetChores]);
 
   const constructNewChore = () => {
-    let choreName = newChore.current.value
+    let choreName = singleChore.newChore
     console.log("choreName", choreName)
     const foundChore = chores.find(chore => chore.name === choreName)
     console.log("foundChore", foundChore)
     if(foundChore === undefined){
     addChore({
       name: choreName
-    }).then(handleClose)
+    })
+    // .then(handleClose)
   }else(
     window.alert("Chore already exists")
   )
@@ -101,45 +102,23 @@ export default props => {
     }
   };
 
-  function SimpleDialog(props) {
-    // const classes = useStyles();
-    const { onClose, open } = props;
-    const handleClose = () => {
-      onClose(singleChore);
-    };
-  
-    // const handleListItemClick = value => {
-    //   onClose(value);
-    // };
-    
-    return (
-      <Dialog onClose={handleClose} aria-labelledby="simple-dialog-title" open={open}>
-        <DialogTitle id="simple-dialog-title">Add Chore MenuItem</DialogTitle>
-        <FormControl>
-          <input id="standard-uncontrolled" className="form-group addChoreInput" type="text" id="standard" required autoFocus label="Add a Chore" variant="outlined" name="name" defaultValue={""} ref={newChore}  
-          />
-        </FormControl>
-        <Button className="saveChoreButton" onClick={(evt) => {
-          evt.preventDefault();
-          constructNewChore()
-        }}>
-          Save Chore
-        </Button>
-      </Dialog>
-    );
-  }
+  const [modal, setModal] = useState(false);
 
-  const [open, setOpen] = React.useState(false);
+  const toggle = () => setModal(!modal);
+
+  
+
+  // const [open, setOpen] = React.useState(false);
   // const [selectedValue, setSelectedValue] = React.useState({});
 
-  const handleClickOpen = () => {
-    setOpen(true);
-  };
+  // const handleClickOpen = () => {
+  //   setOpen(true);
+  // };
 
-  const handleClose = value => {
-    setOpen(false);
-    // setSelectedValue(value);
-  };
+  // const handleClose = value => {
+  //   setOpen(false);
+  //   // setSelectedValue(value);
+  // };
 
   // const handleControlledChoreInputChange = event => {
   //   const addedChore = Object.assign({}, selectedValue);
@@ -150,33 +129,50 @@ export default props => {
   return (
     <>
       <Container>
-        <FormControl className="choreForm">
+        <FormGroup className="choreForm">
           <h2 className="choreForm__title">
             {editMode ? "Edit Chore" : "Add Chore"}
           </h2>
 
-          <FormControl>
-            <InputLabel>Select a Chore</InputLabel>
-            <Select
+          <Form>
+            <Label>Select a Chore</Label>
+            <Input
+              type="select"
               value={singleChore.choreId}
               name="choreId"
               id="choreId"
               className="form-control"
               onChange={handleControlledInputChange}
             >
-              {/* <MenuItem value="0">Select a Chore</MenuItem> */}
+             
+              <option value="0">Select a Chore</option>
               {chores.map(chore => (
-                <MenuItem key={chore.id} value={chore.id}>
+                <option key={chore.id} value={chore.id}>
                   {chore.name}
-                </MenuItem>
+                </option>
               ))}
-            </Select>
-            <Button className="addChoreMenuItem" onClick={handleClickOpen}>Add Chore</Button>
-            <SimpleDialog  open={open} onClose={handleClose} />
-          </FormControl>
-          <FormControl>
-          <InputLabel>Select a Child</InputLabel>
-            <Select
+            </Input>
+            <Button className="addChoreoption" onClick={toggle}>Add Chore</Button>
+            <Modal isOpen={modal} toggle={toggle} className="choreDialog">
+      <ModalHeader id="simple-dialog-title">Add Chore option</ModalHeader>
+        <FormGroup>
+          <Input id="standard-uncontrolled" className="form-group addChoreInput" type="text" id="standard" required autoFocus label="Add a Chore" variant="outlined" name="newChore" value={singleChore.newChore} onChange={handleControlledInputChange}
+          />
+        </FormGroup>
+        <Button className="saveChoreButton" onClick={(evt) => {
+          evt.preventDefault();
+          constructNewChore();
+          toggle()
+        }}>
+          Save Chore
+        </Button>
+        </Modal>
+            {/* <Modal  open={open} onClose={handleClose} /> */}
+          </Form>
+          <FormGroup>
+          <Label>Select a Child</Label>
+            <Input
+              type="select"
               value={singleChore.userId}
               name="userId"
               id="userId"
@@ -184,19 +180,20 @@ export default props => {
               onChange={handleControlledInputChange}
               placeholder="Select a Child"
             >
-              {/* <MenuItem value="0">Select a Child</MenuItem> */}
+              <option value="0">Select a Child</option>
               {userChildren.map(child => (
-                <MenuItem key={child.id} value={child.id}>
+                <option key={child.id} value={child.id}>
                   {child.userName}
-                </MenuItem>
+                </option>
               ))}
-            </Select>
-          </FormControl>
+            </Input>
+          </FormGroup>
 
-          <FormControl>
-          <InputLabel>Select Day</InputLabel>
+          <FormGroup>
+          <Label>Select Day</Label>
 
-            <Select
+            <Input
+              type="select"
               value={singleChore.day}
               name="day"
               id="day"
@@ -204,20 +201,20 @@ export default props => {
               onChange={handleControlledInputChange}
               placeholder="Select Day"
             >
-              <MenuItem value="0">Sunday</MenuItem>
-              <MenuItem value="1">Monday</MenuItem>
-              <MenuItem value="2">Tuesday</MenuItem>
-              <MenuItem value="3">Wednesday</MenuItem>
-              <MenuItem value="4">Thursday</MenuItem>
-              <MenuItem value="5">Friday</MenuItem>
-              <MenuItem value="6">Saturday</MenuItem>
-            </Select>
-          </FormControl>
+              <option value="0">Sunday</option>
+              <option value="1">Monday</option>
+              <option value="2">Tuesday</option>
+              <option value="3">Wednesday</option>
+              <option value="4">Thursday</option>
+              <option value="5">Friday</option>
+              <option value="6">Saturday</option>
+            </Input>
+          </FormGroup>
 
-          <FormControl>
-            <label>Recurring Event</label>
-            <Checkbox type="checkbox" />
-          </FormControl>
+          <FormGroup>
+            <Label>Recurring Event</Label>
+            <Input type="checkbox" />
+          </FormGroup>
 
           <div className="saveButtonContainer">
             <Button
@@ -237,7 +234,7 @@ export default props => {
               Close
             </Button>
           </div>
-        </FormControl>
+        </FormGroup>
       </Container>
     </>
   );

@@ -3,7 +3,7 @@ import { PetContext } from "./PetProvider";
 import "./AddPet.css";
 // import { render } from "@testing-library/react";
 // import { Image, CloudinaryContext } from 'cloudinary-react'
-import FormGroup from '@material-ui/core/FormGroup';
+import { Label, Input, Button, FormGroup } from 'reactstrap';
 
 
 export default props => {
@@ -35,8 +35,8 @@ export default props => {
         <h2 className="addPetForm__title">Add a Pet</h2>
         <fieldset>
           <div className="form-group">
-            <label htmlFor="name">Pet Name </label>
-            <input
+            <Label htmlFor="name">Pet Name </Label>
+            <Input
               type="text"
               name="name"
               required
@@ -50,7 +50,8 @@ export default props => {
           </div>
         </fieldset>
         <fieldset>
-          <select
+          <Input
+            type="text"
             value={newPet.type}
             name="type"
             id="type"
@@ -66,10 +67,10 @@ export default props => {
             <option value="6">Reptile</option>
             <option value="7">Other</option>
 
-          </select>
+          </Input>
         </fieldset>
         <div className="saveButtonContainer">
-          <button
+          <Button
             type="submit"
             onClick={evt => {
               evt.preventDefault();
@@ -78,13 +79,13 @@ export default props => {
             className="btn btn-primary"
           >
             Save
-          </button>
-          <button
+          </Button>
+          <Button
             className=" closeBtn btn btn-light"
             onClick={() => props.history.push("/")}
           >
             Cancel
-          </button>
+          </Button>
         </div>
       </FormGroup>
     </section>
