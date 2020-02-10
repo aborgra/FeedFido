@@ -82,7 +82,7 @@ export default props => {
         userId: parseInt(singleChore.userId),
         choreId: parseInt(singleChore.choreId),
         day: parseInt(singleChore.day),
-        recurrance: "Daily",
+        recurrance: (singleChore.recurrance),
         isCompleted: false
       }).then(() => props.history.push("/"));
     } else {
@@ -96,7 +96,7 @@ export default props => {
         userId: parseInt(singleChore.userId),
         choreId: parseInt(singleChore.choreId),
         day: parseInt(singleChore.day),
-        recurrance: "Daily",
+        recurrance: (singleChore.recurrance),
         isCompleted: false
       }).then(() => props.history.push("/"));
     }
@@ -154,7 +154,7 @@ export default props => {
             </Input>
             <Button className="addChoreoption" onClick={toggle}>Add Chore</Button>
             <Modal isOpen={modal} toggle={toggle} className="choreDialog">
-      <ModalHeader id="simple-dialog-title">Add Chore option</ModalHeader>
+      <ModalHeader id="simple-dialog-title">Add Chore Option</ModalHeader>
         <FormGroup>
           <Input id="standard-uncontrolled" className="form-group addChoreInput" type="text" id="standard" required autoFocus label="Add a Chore" variant="outlined" name="newChore" value={singleChore.newChore} onChange={handleControlledInputChange}
           />
@@ -212,8 +212,22 @@ export default props => {
           </FormGroup>
 
           <FormGroup>
-            <Label>Recurring Event</Label>
-            <Input type="checkbox" />
+          <Label>Recurring Event</Label>
+            <Input
+              type="select"
+              value={singleChore.recurrance}
+              name="recurrance"
+              id="recurrance"
+              className="form-control"
+              onChange={handleControlledInputChange}
+              placeholder="Select Frequency"
+            >
+              <option value="0">None</option>
+              <option value="daily">Daily</option>
+              <option value="weekly">Weekly</option>
+
+
+            </Input>
           </FormGroup>
 
           <div className="saveButtonContainer">

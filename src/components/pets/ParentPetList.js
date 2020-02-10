@@ -6,7 +6,6 @@ import { UserContext } from "../users/UserProvider";
 import { KidPetChoreContext } from "../chores/KidPetChoreProvider";
 import { ChoreContext } from "../chores/ChoreProvider";
 
-
 export default props => {
   const { users } = useContext(UserContext);
   const { pets } = useContext(PetContext);
@@ -14,6 +13,9 @@ export default props => {
   const { chores } = useContext(ChoreContext);
   const today = new Date();
   const dayOfWeek = today.getDay();
+  var options = { year: "numeric", month: "numeric", day: "numeric" };
+
+  const [scheduledDate, x] = today.toLocaleString("en-US", options).split(",");
 
   const activeUserId = parseInt(localStorage.getItem("fido_user"));
   // const activeUser = users.find(user => user.id === activeUserId) || {}
@@ -48,16 +50,17 @@ export default props => {
       let allChildPetChores = [];
       let foundPetChores =
         pet.kidPetChores.map(kpc => {
-          // if (kpc.userId === activeUserId) {
-          // console.log("kpc", kpc);
           kpc.chores = chores.find(chore => kpc.choreId === chore.id);
           kpc.child = users.find(user => kpc.userId === user.id);
           allChildPetChores.push(kpc);
           // }
         }) || [];
       const dailyChores = allChildPetChores.filter(
-        cpchore => cpchore.day === dayOfWeek
+        cpchore =>
+          (cpchore.day === dayOfWeek && !cpchore.hasOwnProperty("schedDate")) ||
+          cpchore.schedDate === scheduledDate
       );
+
       pet.foundChoresArray = dailyChores;
       return pet;
     }) || [];
