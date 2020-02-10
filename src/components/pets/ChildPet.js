@@ -36,6 +36,8 @@ export default ({ pet, history }) => {
   let formatedDate = todayDate.toLocaleString("en-US", options);
   let [useDate, foo] = formatedDate.split(",");
 
+  
+
   return (
     <Card className="petCard">
       <h3 className="pet__name">{pet.name}</h3>

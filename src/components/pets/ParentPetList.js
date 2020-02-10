@@ -71,20 +71,6 @@ export default props => {
   return (
     <>
       <section className="parentPets">
-        {/* {renderDrawer()} */}
-
-        <div className="parentIcons">
-          <img
-            className="addPetIcon"
-            src={require("../pics/veterinary.svg")}
-            onClick={() => props.history.push("/addPet")}
-          />
-          <img
-            className="showChildrenIcon"
-            src={require("../pics/boy.svg")}
-            onClick={() => props.history.push("/ChildList")}
-          />
-        </div>
         <div className="pets__list">
           {allPetChoresArray.map(pc => {
             return <ParentPet {...props} key={pc.id} pet={pc} />;

@@ -39,6 +39,9 @@ export default ({ pet, history }) => {
       <div className="pet__header">
       <h2 className="pet__name">{pet.name}</h2>
       <div>{petType(pet.type)}</div>
+      
+      </div>
+      <div className="addPetButtonContainer">
       <img
         src={require("./plus.svg")}
         className="addPet"
@@ -47,7 +50,7 @@ export default ({ pet, history }) => {
         }}
       />
       </div>
-      <CardContent>
+      <section>
         <List className="pet__chores">
           {pet.foundChoresArray.map(fca => (
             <ListItem
@@ -57,7 +60,7 @@ export default ({ pet, history }) => {
                   : (choreItemCompleted = "notCompleted petChore")
               }
             >
-              <div className="choreName">{fca.chores.name}</div><div> Assigned to:{fca.child.userName}</div>
+              <div className="choreName">{fca.chores.name}</div><div>{fca.child.userName}</div>
               <CardActions>
                 <img
                   src={require("./edit.svg")}
@@ -77,7 +80,7 @@ export default ({ pet, history }) => {
             </ListItem>
           ))}
         </List>
-      </CardContent>
+      </section>
     </Card>
   );
 };
