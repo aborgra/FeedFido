@@ -154,7 +154,7 @@ export default props => {
             </Input>
             <Button className="addChoreoption" onClick={toggle}>Add Chore</Button>
             <Modal isOpen={modal} toggle={toggle} className="choreDialog">
-      <ModalHeader id="simple-dialog-title">Add Chore option</ModalHeader>
+      <ModalHeader id="simple-dialog-title">Add Chore Option</ModalHeader>
         <FormGroup>
           <Input id="standard-uncontrolled" className="form-group addChoreInput" type="text" id="standard" required autoFocus label="Add a Chore" variant="outlined" name="newChore" value={singleChore.newChore} onChange={handleControlledInputChange}
           />
