@@ -21,31 +21,10 @@ export default props => {
   // const activeUser = users.find(user => user.id === activeUserId) || {}
   const allUserPets = pets.filter(pet => pet.userId === activeUserId) || [];
 
-  // const renderDrawer = () => {
-  //   return (
-  //     <>
-  //       <img
-  //         src={require("./plus.svg")}
-  //         onClick={() => {
-  //           toggleDrawer("right", true);
-  //         }}
-  //       />
-  //       <Drawer
-  //         anchor="right"
-  //         open={state.right}
-  //         onClose={() => {
-  //           toggleDrawer("right", false);
-  //         }}
-  //       >
-  //         {sideList("right")}
-  //       </Drawer>
-  //     </>
-  //   );
-  // };
+  
 
   const allPetChoresArray =
     allUserPets.map(pet => {
-      console.log("allUserPets", allUserPets);
 
       let allChildPetChores = [];
       let foundPetChores =
@@ -64,7 +43,7 @@ export default props => {
       pet.foundChoresArray = dailyChores;
       return pet;
     }) || [];
-  console.log(allPetChoresArray);
+  // console.log(allPetChoresArray);
   // const filteredPetChores =
   //   allPetChoresArray.filter(pc => pc.foundChoresArray.length !== 0) || [];
 
@@ -73,6 +52,7 @@ export default props => {
       <section className="parentPets">
         <div className="pets__list">
           {allPetChoresArray.map(pc => {
+            console.log("parentpetpc", pc)
             return <ParentPet {...props} key={pc.id} pet={pc} />;
           })}
         </div>

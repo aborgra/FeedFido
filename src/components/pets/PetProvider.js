@@ -51,7 +51,7 @@ export const PetProvider = (props) => {
   }, [pets])
 
   useEffect(() => {
-    console.log("***KPC APP STATE CHANGED", kidPetChores)
+    // console.log("***KPC APP STATE CHANGED", kidPetChores)
     getPets()
   }, [kidPetChores])
 
