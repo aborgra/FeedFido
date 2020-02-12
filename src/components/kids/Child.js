@@ -5,16 +5,16 @@ import { Button } from "reactstrap";
 export default ({ child, history }) => {
   return (
     <section className="childCard">
-      <h3 className="child__name">{child.userName}</h3>
+      <h2 className="child__name">{child.userName}</h2>
 
-      <Button
-        className="graphButton" variant="contained"
+      <button
+        className="graphButton btn btn-primary" 
         onClick={() => {
           history.push(`/child/graph/${child.id}`);
         }}
       >
         Graph
-      </Button>
+      </button>
     </section>
   );
 };

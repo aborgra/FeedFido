@@ -9,11 +9,13 @@ import {
   Form,
   Modal,
   ModalHeader,
-  Input
+  Input,
+  Alert
 } from "reactstrap";
 import { Button } from "reactstrap";
 import "./ChoreForm.css";
 import moment from "moment";
+import { PetContext } from "../pets/PetProvider";
 
 export default props => {
   const { addChore, chores, editChore } = useContext(ChoreContext);
@@ -23,13 +25,13 @@ export default props => {
     deleteKidPetChore,
     editKidPetChore
   } = useContext(KidPetChoreContext);
-
+  const { pets } = useContext(PetContext)
   const { users } = useContext(UserContext);
   const newChore = useRef("");
   // const [ButtonClicked, setButtonClicked] = useState(false);
   const [singleChore, setSingleChore] = useState({});
   const activeUserId = parseInt(localStorage.getItem("fido_user"));
-
+  const foundPet = pets.find(pet => pet.id === parseInt(props.match.params.petId)) || {}
   const editMode = props.match.params.hasOwnProperty("kpcId");
   // Not currently determining edit vs add
   const children = users.filter(user => user.parentId > 0) || [];
@@ -67,8 +69,11 @@ export default props => {
       addChore({
         name: choreName
       });
-      // .then(handleClose)
-    } else window.alert("Chore already exists");
+    } else {
+     window.alert("Chore already exists")
+    }
+    
+  
   };
 
   const constructNewKidPetChore = () => {
@@ -112,7 +117,7 @@ export default props => {
       <Container className="choreFormContainer">
         <FormGroup className="choreForm">
           <h2 className="choreForm__title">
-            {editMode ? "Edit Chore" : "Add Chore"}
+            {editMode ? "Edit Chore" : `Add Chore for ${foundPet.name}`}
           </h2>
 
           <Form>
@@ -122,7 +127,7 @@ export default props => {
               value={singleChore.choreId}
               name="choreId"
               id="choreId"
-              className="form-control"
+              className="form-control choreDropdown"
               onChange={handleControlledInputChange}
             >
               <option value="0">Select a Chore</option>
@@ -132,9 +137,9 @@ export default props => {
                 </option>
               ))}
             </Input>
-            <Button className="addChoreoption" onClick={toggle}>
+            <button className="addChoreoption btn btn-primary" onClick={toggle}>
               Add Chore
-            </Button>
+            </button>
             <Modal isOpen={modal} toggle={toggle} className="choreDialog">
               <ModalHeader id="simple-dialog-title">
                 Add Chore Option
@@ -174,7 +179,7 @@ export default props => {
               value={singleChore.userId}
               name="userId"
               id="userId"
-              className="form-control"
+              className="form-control choreChild"
               onChange={handleControlledInputChange}
               placeholder="Select a Child"
             >
@@ -195,17 +200,10 @@ export default props => {
               value={singleChore.schedDate}
               name="schedDate"
               id="schedDate"
-              className="form-control"
+              className="form-control choreDate"
               onChange={handleControlledInputChange}
               placeholder="Select Day"
             >
-              {/* <option value="0">Sunday</option>
-              <option value="1">Monday</option>
-              <option value="2">Tuesday</option>
-              <option value="3">Wednesday</option>
-              <option value="4">Thursday</option>
-              <option value="5">Friday</option>
-              <option value="6">Saturday</option> */}
             </Input>
           </FormGroup>
 
@@ -216,7 +214,7 @@ export default props => {
               value={singleChore.recurrance}
               name="recurrance"
               id="recurrance"
-              className="form-control"
+              className="form-control choreRecurring"
               onChange={handleControlledInputChange}
               placeholder="Select Frequency"
             >
@@ -227,7 +225,7 @@ export default props => {
           </FormGroup>
 
           <div className="saveButtonContainer">
-            <Button
+            <button
               type="submit"
               onClick={evt => {
                 evt.preventDefault();
@@ -236,7 +234,7 @@ export default props => {
               className="btn btn-primary"
             >
               {editMode ? "Save changes" : "Save Chore"}
-            </Button>
+            </button>
             <Button
               className=" closeBtn btn btn-light"
               onClick={() => props.history.push("/")}

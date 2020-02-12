@@ -65,7 +65,7 @@ export default ({ pet, history }) => {
                   src={require("./delete.svg")}
                   className="delete__icon"
                   onClick={() => {
-                    deleteKidPetChore(fca);
+                    deleteKidPetChore(fca); 
                   }}
                 />
               </section>

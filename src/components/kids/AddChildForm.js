@@ -1,5 +1,6 @@
 import React, { useContext, useState, useEffect } from "react"
 import { UserContext } from "../users/UserProvider"
+import "./Kids.css"
 
 
 export default props => {
@@ -32,11 +33,11 @@ export default props => {
       <h2 className="addChildForm__title">Add a Child</h2>
       <fieldset>
         <div className="form-group">
-          <label htmlFor="userName">Username </label>
+          <label htmlFor="userName">Child Username </label>
           <input type="text" name="userName" required autoFocus className="form-control"
    
             proptype="varchar"
-            placeholder="Username"
+            placeholder="username"
             defaultValue={newUser.userName}
             onChange={handleControlledInputChange}
           />
@@ -44,7 +45,7 @@ export default props => {
       </fieldset>
       <fieldset>
         <div className="form-group">
-          <label htmlFor="name">Password</label>
+          <label htmlFor="name">Child Password</label>
           <input type="text" name="password" required autoFocus className="form-control"
 
             proptype="varchar"

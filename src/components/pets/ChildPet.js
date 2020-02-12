@@ -58,13 +58,14 @@ export default ({ pet, history }) => {
 
   return (
     <Card className="petCard">
+      <div className="pet__header">
       <h3 className="pet__name">{pet.name}</h3>
-      <div>{petType(pet.type)}</div>
-
+      <div className="petImage">{petType(pet.type)}</div>
+      </div>
       <CardBody>
-        <ListGroup className="pet__chores">
+        <ListGroup className="petChore">
           {pet.foundChoresArray.map(fca => (
-            <ListGroupItem>
+            <ListGroupItem className="chore">
               {fca.chores.name}
               <Input
                 type="checkbox"

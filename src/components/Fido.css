@@ -8,11 +8,6 @@
   height: auto;
 }
 
-/* html{
-  background-color: rgb(235, 121, 15);
-
-} */
-
 .petListContainer {
   flex-basis: 90%;
 }

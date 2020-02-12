@@ -81,16 +81,16 @@ export default props => {
       {parentIcons()}
       {/* <h3 className="navbar__message">{activeUser.userName} - Welcome to Feed Fido!</h3> */}
       {localStorage.getItem("fido_user") ? (
-        <Button
-          className="logoutButton btn btn-light"
+        <img
+          className="logoutButton"
+          src={require("../pics/logout.svg")}
           onClick={e => {
             e.preventDefault();
             localStorage.removeItem("fido_user");
             props.history.push("/");
           }}
-        >
-          Logout
-        </Button>
+        />
+    
       ) : (
         ""
       )}

@@ -30,7 +30,6 @@ export default props => {
     return kpc
   }) || []
 
-  console.log(allChores, "allChores")
 
   
   return (

@@ -23,7 +23,7 @@ export default props => {
     return dates;
   };
   timeFrom(7)
-
+console.log(dates)
   let foundChoresCountArray = [];
   const foundDates =
     dates.map(date => {
@@ -34,13 +34,6 @@ export default props => {
     }) || [];
 
   console.log(foundChoresCountArray);
-
-  // Formats today's date correctly for comparison
-  // var options = { year: 'numeric', month: 'numeric', day: 'numeric' }
-  // let todayDate = new Date()
-  // let formatedDate = todayDate.toLocaleString('en-US', options)
-  // let [useDate, foo] = formatedDate.split(",")
-  // console.log(useDate)
 
   return (
     <div className="childChartContainer">

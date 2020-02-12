@@ -1,3 +1,13 @@
 .petFormContainer {
   padding-top: 100pt;
+  width: 300px;
+  margin: auto;
+}
+
+.petName {
+  margin-bottom: 5pt;
+}
+
+.petType {
+  margin-bottom: 10pt;
 }

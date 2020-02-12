@@ -1,3 +1,11 @@
 .choreFormContainer {
   padding-top: 100pt;
 }
+
+.form-control {
+  margin-bottom: 10pt;
+}
+
+.btn {
+  margin-bottom: 10pt;
+}
