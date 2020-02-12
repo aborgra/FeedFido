@@ -19,7 +19,6 @@ export default props => {
   const  {users}  = useContext(UserContext);
   const activeUserId = parseInt(localStorage.getItem("fido_user"));
   const activeUser = users.find(user => user.id === activeUserId) || {}
-  console.log(activeUserId);
 
   return (
     <>

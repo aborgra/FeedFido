@@ -16,7 +16,6 @@ export default props => {
 
   let compareDate = Date.now()- 1 * 20 * 60 * 60 * 1000;
 
-  console.log("test", userChildren);
 
   const notificationIcon = () => {
     if (activeUser.parentId === 0) {
@@ -28,7 +27,6 @@ export default props => {
             if (kpc.isCompleted === false) {
               if (kpc.hasOwnProperty("schedDate")) {
                 let scheduledDate = moment(kpc.schedDate).valueOf();
-                console.log(scheduledDate);
                 if (scheduledDate < compareDate) {
                   missingChores.push(kpc);
                 }
@@ -37,7 +35,6 @@ export default props => {
           });
           return child;
         }) || [];
-      console.log(missingChores, "missingChores")
       let missingChoresCount = missingChores.length;
 
       return (

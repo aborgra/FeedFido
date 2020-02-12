@@ -52,7 +52,6 @@ export default props => {
       <section className="parentPets">
         <div className="pets__list">
           {allPetChoresArray.map(pc => {
-            console.log("parentpetpc", pc)
             return <ParentPet {...props} key={pc.id} pet={pc} />;
           })}
         </div>
