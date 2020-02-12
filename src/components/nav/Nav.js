@@ -14,7 +14,7 @@ export default props => {
   const userChildren =
     users.filter(user => user.parentId === activeUserId) || [];
 
-  let today = Date.now();
+  let compareDate = Date.now()- 1 * 20 * 60 * 60 * 1000;
 
   console.log("test", userChildren);
 
@@ -29,7 +29,7 @@ export default props => {
               if (kpc.hasOwnProperty("schedDate")) {
                 let scheduledDate = moment(kpc.schedDate).valueOf();
                 console.log(scheduledDate);
-                if (scheduledDate < today) {
+                if (scheduledDate < compareDate) {
                   missingChores.push(kpc);
                 }
               }
@@ -42,7 +42,7 @@ export default props => {
 
       return (
         <Button
-          className="btn btn-danger"
+          className="btn btn-danger notificationButton"
           onClick={e => {
             props.history.push(`/notifications/${activeUserId}`);
           }}

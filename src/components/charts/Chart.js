@@ -22,7 +22,7 @@ const mydata = {
 
 
     return (
-      <div>
+      <div className="chart">
         <h2>Weekly Completed Chores</h2>
         <Bar
           data={mydata}

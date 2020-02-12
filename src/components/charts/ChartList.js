@@ -2,6 +2,7 @@ import Chart from "./Chart";
 import React, { useContext } from "react";
 import { KidPetChoreContext } from "../chores/KidPetChoreProvider";
 import moment from "moment";
+import "./Chart.css"
 
 export default props => {
   const { kidPetChores } = useContext(KidPetChoreContext);
@@ -42,7 +43,7 @@ export default props => {
   // console.log(useDate)
 
   return (
-    <div>
+    <div className="childChartContainer">
       <Chart {...props} key={foundChoresCountArray.id} data={foundChoresCountArray} />
     </div>
   );

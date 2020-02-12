@@ -59,6 +59,7 @@ export default props => {
           }}
         />
        <Route exact path="/child/graph/:childId(\d+)" render={props => <ChartList {...props} />} />
+       
        <Route exact path="/notifications/:activeUserId(\d+)" render={props => <NotificationList {...props} />} />
        <Route exact path="/ChildList" render={props => <ChildList {...props} />} />
         <Route exact path="/addPet" render={props => <AddPetForm {...props} />} />

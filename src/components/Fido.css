@@ -18,8 +18,14 @@
 }
 
 .childContainer {
-  flex-basis: 25%;
-  text-align: right
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  padding-top: 75px;
+  background-color: #ffa726;
+  min-width: 100%;
+  height: auto;
+
 }
 
 .formContainer {
@@ -30,8 +36,22 @@
 
 .childDashboardContainer {
   display: flex;
-  flex-direction: row;
-  padding-top: 75px
+  flex-direction: column;
+  margin: auto;
+  padding-top: 75px;
+  background-color: #ffa726;
+  min-width: 100%;
+  height: auto;
+}
+
+.notificationContainer {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  padding-top: 75px;
+  background-color: #ffa726;
+  min-width: 100%;
+  height: auto;
 }
 
 .launchpadContainer {

@@ -17,14 +17,16 @@ export default props => {
   const activeUserId = parseInt(localStorage.getItem("fido_user"));
   // const activeUser = users.find(user => user.id === activeUserId) || {};
   // const allUserChildren = users.filter(user => user.parentId === activeUserId) || [];
-
-  let today = Date.now();
+  let today = Date.now()
+  let compareDate = Date.now() - 1 * 20 * 60 * 60 * 1000
+  console.log("compareDate", compareDate)
 
   const allChores = kidPetChores.filter(kpc => {
 
     let scheduledDate = moment(kpc.schedDate).valueOf();
+    console.log("scheduleDate", scheduledDate)
 
-    if(kpc.isCompleted === false && kpc.user.parentId === activeUserId && scheduledDate < today)
+    if(kpc.isCompleted === false && kpc.user.parentId === activeUserId && scheduledDate < compareDate)
     return kpc
   }) || []
 

@@ -1,0 +1,13 @@
+.childChartContainer {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  padding-top: 150px;
+  background-color: #ffffff;
+  min-width: 100%;
+  height: auto;
+}
+
+.chart {
+  background-color: white;
+}
