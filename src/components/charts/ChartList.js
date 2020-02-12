@@ -23,17 +23,14 @@ export default props => {
     return dates;
   };
   timeFrom(7)
-console.log(dates)
   let foundChoresCountArray = [];
   const foundDates =
     dates.map(date => {
       let datefilteredArray =
         filteredChildArray.filter(obj => obj.dateCompleted === date) || [];
-      console.log("test", datefilteredArray);
       foundChoresCountArray.push(datefilteredArray.length);
     }) || [];
 
-  console.log(foundChoresCountArray);
 
   return (
     <div className="childChartContainer">

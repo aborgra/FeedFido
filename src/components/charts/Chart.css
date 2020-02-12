@@ -10,4 +10,10 @@
 
 .chart {
   background-color: white;
+  padding: 10pt;
+}
+
+.chartTitle{
+  margin-bottom: 20pt;
+  text-align: center;
 }

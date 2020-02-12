@@ -34,3 +34,7 @@
   max-height: 70px;
   margin-top: auto;
 }
+
+html {
+  min-height: 100% !important;
+}
