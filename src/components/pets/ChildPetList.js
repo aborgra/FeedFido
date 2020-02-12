@@ -26,7 +26,7 @@ export default props => {
       let allChildPetChores = []
       let foundPetChores = pet.kidPetChores.filter(kpc => (kpc.day === dayOfWeek && !(kpc.hasOwnProperty("schedDate"))) || kpc.schedDate === scheduledDate)
         let foundkpc = foundPetChores.map(fkpc => {
-          console.log(fkpc, "fkpc")
+          // console.log(fkpc, "fkpc")
          if (fkpc.userId === activeUserId && fkpc.isCompleted === false) {
          fkpc.chores = chores.find(chore => fkpc.choreId === chore.id)
           allChildPetChores.push(fkpc)}}) || []
@@ -35,7 +35,6 @@ export default props => {
 
       const filteredPetChores = allPetChoresArray.filter (pc => pc.foundChoresArray.length !== 0) || []
 
- console.log("filteredPetChores", filteredPetChores, dayOfWeek)
 
 const childList = filteredPetChores.map(fpc => {
   return (

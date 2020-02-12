@@ -13,12 +13,12 @@ import ChoresForm from "./chores/ChoresForm";
 import "./Fido.css";
 import { Container } from "reactstrap";
 import ChartList from "./charts/ChartList";
+import NotificationList from "./notifications/NotificationList";
 
 export default props => {
   const  {users}  = useContext(UserContext);
   const activeUserId = parseInt(localStorage.getItem("fido_user"));
   const activeUser = users.find(user => user.id === activeUserId) || {}
-  console.log(activeUserId);
 
   return (
     <>
@@ -58,6 +58,8 @@ export default props => {
           }}
         />
        <Route exact path="/child/graph/:childId(\d+)" render={props => <ChartList {...props} />} />
+       
+       <Route exact path="/notifications/:activeUserId(\d+)" render={props => <NotificationList {...props} />} />
        <Route exact path="/ChildList" render={props => <ChildList {...props} />} />
         <Route exact path="/addPet" render={props => <AddPetForm {...props} />} />
         <Route exact path="/addChore/:petId(\d+)" render={props => <ChoresForm {...props} />} />

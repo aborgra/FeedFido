@@ -24,6 +24,7 @@
   max-width: 40px;
   margin: 5pt;
   margin-left: 5pt;
+  padding-left: 5pt;
 }
 
 .showChildrenIcon {
@@ -44,5 +45,9 @@
   margin:-5px;
   padding: 10pt;
   margin-left: 10pt;
+}
+
+.notificationButton{
+  border-radius: 50%;
 }
 

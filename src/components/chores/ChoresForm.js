@@ -2,19 +2,18 @@ import React, { useContext, useState, useEffect, useRef } from "react";
 import { UserContext } from "../users/UserProvider";
 import { ChoreContext } from "./ChoreProvider";
 import { KidPetChoreContext } from "./KidPetChoreProvider";
-import { Container, FormGroup, Label, Form, Modal, ModalHeader, Input } from "reactstrap";
-import {DialogTitle} from 'reactstrap';
-import {Dialog} from 'reactstrap';
-import {Button} from 'reactstrap';
-import {TextField} from 'reactstrap';
-import {option} from 'reactstrap';
-import {Select} from 'reactstrap';
-
-
-
-
-
-
+import {
+  Container,
+  FormGroup,
+  Label,
+  Form,
+  Modal,
+  ModalHeader,
+  Input
+} from "reactstrap";
+import { Button } from "reactstrap";
+import "./ChoreForm.css";
+import moment from "moment";
 
 export default props => {
   const { addChore, chores, editChore } = useContext(ChoreContext);
@@ -26,7 +25,7 @@ export default props => {
   } = useContext(KidPetChoreContext);
 
   const { users } = useContext(UserContext);
-  const newChore = useRef("")
+  const newChore = useRef("");
   // const [ButtonClicked, setButtonClicked] = useState(false);
   const [singleChore, setSingleChore] = useState({});
   const activeUserId = parseInt(localStorage.getItem("fido_user"));
@@ -60,29 +59,31 @@ export default props => {
   }, [kidPetChores]);
 
   const constructNewChore = () => {
-    let choreName = singleChore.newChore
-    console.log("choreName", choreName)
-    const foundChore = chores.find(chore => chore.name === choreName)
-    console.log("foundChore", foundChore)
-    if(foundChore === undefined){
-    addChore({
-      name: choreName
-    })
-    // .then(handleClose)
-  }else(
-    window.alert("Chore already exists")
-  )
-}
+    let choreName = singleChore.newChore;
+    console.log("choreName", choreName);
+    const foundChore = chores.find(chore => chore.name === choreName);
+    console.log("foundChore", foundChore);
+    if (foundChore === undefined) {
+      addChore({
+        name: choreName
+      });
+      // .then(handleClose)
+    } else window.alert("Chore already exists");
+  };
 
   const constructNewKidPetChore = () => {
+    let chosenDate = moment(singleChore.schedDate).format('l')
+    console.log("chosenDate", chosenDate)
+    
+
     if (editMode) {
       editKidPetChore({
         id: singleChore.id,
         petId: parseInt(singleChore.petId),
         userId: parseInt(singleChore.userId),
         choreId: parseInt(singleChore.choreId),
-        day: parseInt(singleChore.day),
-        recurrance: (singleChore.recurrance),
+        schedDate: chosenDate,
+        recurrance: singleChore.recurrance,
         isCompleted: false
       }).then(() => props.history.push("/"));
     } else {
@@ -95,8 +96,8 @@ export default props => {
         petId: parseInt(props.match.params.petId),
         userId: parseInt(singleChore.userId),
         choreId: parseInt(singleChore.choreId),
-        day: parseInt(singleChore.day),
-        recurrance: (singleChore.recurrance),
+        schedDate: chosenDate,
+        recurrance: singleChore.recurrance,
         isCompleted: false
       }).then(() => props.history.push("/"));
     }
@@ -106,29 +107,9 @@ export default props => {
 
   const toggle = () => setModal(!modal);
 
-  
-
-  // const [open, setOpen] = React.useState(false);
-  // const [selectedValue, setSelectedValue] = React.useState({});
-
-  // const handleClickOpen = () => {
-  //   setOpen(true);
-  // };
-
-  // const handleClose = value => {
-  //   setOpen(false);
-  //   // setSelectedValue(value);
-  // };
-
-  // const handleControlledChoreInputChange = event => {
-  //   const addedChore = Object.assign({}, selectedValue);
-  //   addedChore[event.target.name] = event.target.value;
-  //   setSelectedValue(addedChore);
-  // };
-
   return (
     <>
-      <Container>
+      <Container className="choreFormContainer">
         <FormGroup className="choreForm">
           <h2 className="choreForm__title">
             {editMode ? "Edit Chore" : "Add Chore"}
@@ -144,7 +125,6 @@ export default props => {
               className="form-control"
               onChange={handleControlledInputChange}
             >
-             
               <option value="0">Select a Chore</option>
               {chores.map(chore => (
                 <option key={chore.id} value={chore.id}>
@@ -152,25 +132,43 @@ export default props => {
                 </option>
               ))}
             </Input>
-            <Button className="addChoreoption" onClick={toggle}>Add Chore</Button>
+            <Button className="addChoreoption" onClick={toggle}>
+              Add Chore
+            </Button>
             <Modal isOpen={modal} toggle={toggle} className="choreDialog">
-      <ModalHeader id="simple-dialog-title">Add Chore Option</ModalHeader>
-        <FormGroup>
-          <Input id="standard-uncontrolled" className="form-group addChoreInput" type="text" id="standard" required autoFocus label="Add a Chore" variant="outlined" name="newChore" value={singleChore.newChore} onChange={handleControlledInputChange}
-          />
-        </FormGroup>
-        <Button className="saveChoreButton" onClick={(evt) => {
-          evt.preventDefault();
-          constructNewChore();
-          toggle()
-        }}>
-          Save Chore
-        </Button>
-        </Modal>
+              <ModalHeader id="simple-dialog-title">
+                Add Chore Option
+              </ModalHeader>
+              <FormGroup>
+                <Input
+                  id="standard-uncontrolled"
+                  className="form-group addChoreInput"
+                  type="text"
+                  id="standard"
+                  required
+                  autoFocus
+                  label="Add a Chore"
+                  variant="outlined"
+                  name="newChore"
+                  value={singleChore.newChore}
+                  onChange={handleControlledInputChange}
+                />
+              </FormGroup>
+              <Button
+                className="saveChoreButton"
+                onClick={evt => {
+                  evt.preventDefault();
+                  constructNewChore();
+                  toggle();
+                }}
+              >
+                Save Chore
+              </Button>
+            </Modal>
             {/* <Modal  open={open} onClose={handleClose} /> */}
           </Form>
           <FormGroup>
-          <Label>Select a Child</Label>
+            <Label>Select a Child</Label>
             <Input
               type="select"
               value={singleChore.userId}
@@ -190,29 +188,29 @@ export default props => {
           </FormGroup>
 
           <FormGroup>
-          <Label>Select Day</Label>
+            <Label>Select Day</Label>
 
             <Input
-              type="select"
-              value={singleChore.day}
-              name="day"
-              id="day"
+              type="date"
+              value={singleChore.schedDate}
+              name="schedDate"
+              id="schedDate"
               className="form-control"
               onChange={handleControlledInputChange}
               placeholder="Select Day"
             >
-              <option value="0">Sunday</option>
+              {/* <option value="0">Sunday</option>
               <option value="1">Monday</option>
               <option value="2">Tuesday</option>
               <option value="3">Wednesday</option>
               <option value="4">Thursday</option>
               <option value="5">Friday</option>
-              <option value="6">Saturday</option>
+              <option value="6">Saturday</option> */}
             </Input>
           </FormGroup>
 
           <FormGroup>
-          <Label>Recurring Event</Label>
+            <Label>Recurring Event</Label>
             <Input
               type="select"
               value={singleChore.recurrance}
@@ -225,8 +223,6 @@ export default props => {
               <option value="0">None</option>
               <option value="daily">Daily</option>
               <option value="weekly">Weekly</option>
-
-
             </Input>
           </FormGroup>
 
