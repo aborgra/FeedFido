@@ -30,13 +30,12 @@ export default props => {
     return kpc
   }) || []
 
-  console.log(allChores, "allChores")
 
   
   return (
     <>
       <section className="notificationList">
-      <h4>Uncompleted Chores</h4>
+      <h4 className="notificationTitle">Overdue Chores</h4>
       {allChores.map(pc => {
         console.log("pc", pc)
             return <Notifications {...props} key={pc.id} chore={pc} />;

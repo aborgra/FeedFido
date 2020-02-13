@@ -52,7 +52,7 @@ export default ({ pet, history }) => {
                   : (choreItemCompleted = "notCompleted petChore")
               }
             >
-              <div className="choreName">{fca.chores.name}</div><div>{fca.child.userName}</div>
+              <div className="choreName">{fca.chores.name}</div><div className="child__name">{fca.child.userName}</div>
               <section>
                 <img
                   src={require("./edit.svg")}
@@ -65,7 +65,7 @@ export default ({ pet, history }) => {
                   src={require("./delete.svg")}
                   className="delete__icon"
                   onClick={() => {
-                    deleteKidPetChore(fca);
+                    deleteKidPetChore(fca); 
                   }}
                 />
               </section>

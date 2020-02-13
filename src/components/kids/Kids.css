@@ -1,3 +1,41 @@
 .addChild {
-  max-width: 40px;
+  max-width: 90px;
+  margin-right: 40pt;
+}
+
+.addChildContainer {
+  text-align: right;
+  margin-top: 10pt;
+}
+
+.parentKids{
+  display: flex;
+  flex-direction: row;
+  margin: auto;
+  padding-top: 100px;
+  background-color: #ffffff;
+  min-width: 100%;
+  height: auto;
+  align-content: top;
+}
+
+.addChildForm {
+  padding-top: 100pt;
+  width: 300px;
+  margin: auto;
+}
+
+.kidList {
+  display: flex;
+  flex-direction: column;
+  flex-basis: 75%;
+}
+
+.childCard {
+  margin-top: 20pt;
+  margin-left: 30pt;
+}
+
+.graphButton{
+  margin-left: 12pt;
 }

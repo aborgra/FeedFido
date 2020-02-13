@@ -3,8 +3,7 @@ import { PetContext } from "./PetProvider";
 import "./AddPet.css";
 // import { render } from "@testing-library/react";
 // import { Image, CloudinaryContext } from 'cloudinary-react'
-import { Label, Input, Button, FormGroup } from 'reactstrap';
-
+import { Label, Input, Button, FormGroup } from "reactstrap";
 
 export default props => {
   const { addPet, pets, deletPet } = useContext(PetContext);
@@ -26,11 +25,10 @@ export default props => {
     } else {
       window.alert("Pet already exists");
     }
-  }
-
+  };
 
   return (
-    <section className="PetFormContainer">
+    <section className="petFormContainer">
       <FormGroup className="addPetForm">
         <h2 className="addPetForm__title">Add a Pet</h2>
         <fieldset>
@@ -41,7 +39,7 @@ export default props => {
               name="name"
               required
               autoFocus
-              className="form-control"
+              className="form-control petName"
               proptype="varchar"
               placeholder="Pet Name"
               defaultValue={newPet.name}
@@ -50,12 +48,13 @@ export default props => {
           </div>
         </fieldset>
         <fieldset>
+          <Label htmlFor="type">Pet Type </Label>
           <Input
-            type="text"
+            type="select"
             value={newPet.type}
             name="type"
             id="type"
-            className="form-control"
+            className="form-control petType"
             onChange={handleControlledInputChange}
           >
             <option value="0">Pet Type</option>
@@ -66,20 +65,19 @@ export default props => {
             <option value="5">Bird</option>
             <option value="6">Reptile</option>
             <option value="7">Other</option>
-
           </Input>
         </fieldset>
         <div className="saveButtonContainer">
-          <Button
+          <button
             type="submit"
             onClick={evt => {
               evt.preventDefault();
               constructNewPet();
             }}
-            className="btn btn-primary"
+            className="savePetBtn btn btn-primary"
           >
             Save
-          </Button>
+          </button>
           <Button
             className=" closeBtn btn btn-light"
             onClick={() => props.history.push("/")}
@@ -90,4 +88,4 @@ export default props => {
       </FormGroup>
     </section>
   );
-  }
+};

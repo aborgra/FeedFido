@@ -20,13 +20,16 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 100px;
+  margin-top: 50px;
   margin-bottom: 50px;
-  width: 300px;
-  background-color: rgb(255, 255, 255);
-  padding: 15pt;
+  width: 325px;
+  background-color: #ffa726;
+  padding: 25pt;
   border:1pt solid gray;
-  border-radius: 5pt;
+  -webkit-box-shadow: 10px 10px 14px -3px rgba(0, 0, 0, 0.66) !important;
+  -moz-box-shadow: 10px 10px 14px -3px rgba(0, 0, 0, 0.66)!important;
+  box-shadow: 10px 10px 14px -3px rgba(0, 0, 0, 0.66) !important;
+  border-radius:5pt;
 }
 
 .logInUserContainer{
@@ -40,6 +43,8 @@
   height: 25px;
   border-radius: 3pt;
   padding: 2px;
+  margin-bottom: 5pt;
+height: 30pt;
 }
 
 .logInButtons{
@@ -59,7 +64,7 @@
 }
 
 .logInPass{
-  height: 25px;
+  height: 30pt;
   border-radius: 3pt;
   padding: 2px;
 }
@@ -74,7 +79,7 @@
 
 
 .logInButton{
-  margin: 5px;
+  margin-right: 10px;
 }
 
 .registerContainer{
@@ -89,10 +94,30 @@
 }
 
 .logInBackground {
-  background-color: #29b6f6;
   height: 700px;
   display: flex;
   align-items: center;
   justify-content: center;
   margin:-10%
 }
+
+
+
+.welcomeTitle {
+  text-align: center;
+  color: rgb(15, 150, 184);
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.formLabel{
+  font-weight: bold;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: row;
+  margin-top: 10pt
+}
+
+

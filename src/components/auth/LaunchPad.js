@@ -15,6 +15,7 @@ const Launchpad = props => {
     <>
       <div className="launchpad__Container">
         <h1 className="launchpad__title">Feed Fido</h1>
+
         <section className="launchpad__form">
           {/* <div className="launchpad__choice">I am a ...</div> */}
           <Button color="primary" size="large"
@@ -23,7 +24,7 @@ const Launchpad = props => {
           >
             Parent
           </Button>
-          <hr></hr>
+
           <Button color="primary" size="large"
             className="launchpadButton"
             onClick={() => props.history.push("/kidLogin")}
@@ -31,6 +32,8 @@ const Launchpad = props => {
             Child
           </Button>
         </section>
+        <img src={require("../pics/footprint.svg")} className="logo"/>
+
       </div>
     </>
   );

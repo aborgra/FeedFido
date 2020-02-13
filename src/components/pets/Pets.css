@@ -5,16 +5,18 @@
   -webkit-box-shadow: 10px 10px 14px -3px rgba(0, 0, 0, 0.66) !important;
   -moz-box-shadow: 10px 10px 14px -3px rgba(0, 0, 0, 0.66)!important;
   box-shadow: 10px 10px 14px -3px rgba(0, 0, 0, 0.66) !important;
+  border-radius:5pt;
 }
 
 .petChore {
   display: flex;
   flex-direction: column;
+  border: none !important;
 }
 
 .choreName {
   font-weight: bold;
-  font-size: 15pt;
+  font-size: 16pt;
 }
 
 .parentIcons {
@@ -27,27 +29,46 @@
 }
 
 .petImage {
-  max-width: 50px;
-  max-height: 50px;
+  max-width: 70px;
+  max-height: 70px;
   margin-top: auto;
 }
 
 .pet__header {
   padding-top: 8pt;
+  padding-right: 20pt;
+  padding-left: 20pt;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
   font-size: 24px;
   margin-top: auto;
-  border-bottom: 1pt solid gray;
+  /* border-bottom: 1pt solid gray; */
 }
 
 
 
 .addPetButtonContainer {
-  text-align: center;
-  margin-top: 10pt;
+  text-align: left;
+  margin-left: 20pt;
+  margin-bottom: 10pt;
 }
 
 .pet__name {
-  margin-top: 0px;
+  margin-top: 10px;
+}
+
+.edit__icon {
+  margin: 10pt;
+  margin-top: 5pt;
+  margin-right: 5pt;
+}
+
+.delete__icon {
+  margin: 10pt;
+  margin-top: 5pt;
+  margin-left: 5pt;
+}
+
+.child__name {
+  margin-left: 12pt;
 }

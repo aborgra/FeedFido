@@ -1,5 +1,6 @@
 import React from 'react';
 import {Bar} from 'react-chartjs-2'; 
+import "./Chart.css"
 
 
 export default ({data}) => {
@@ -10,11 +11,11 @@ const mydata = {
   datasets: [
     {
       label: 'Completed Chores',
-      backgroundColor: 'rgba(255,99,132,0.2)',
-      borderColor: 'rgba(255,99,132,1)',
+      backgroundColor: '#ffa726',
+      borderColor: '#ffa726',
       borderWidth: 1,
-      hoverBackgroundColor: 'rgba(255,99,132,0.4)',
-      hoverBorderColor: 'rgba(255,99,132,1)',
+      hoverBackgroundColor: '#29b6f6',
+      hoverBorderColor: '#29b6f6',
       data: data
     }
   ]
@@ -23,13 +24,13 @@ const mydata = {
 
     return (
       <div className="chart">
-        <h2>Weekly Completed Chores</h2>
+        <h2 className="chartTitle">Weekly Completed Chores</h2>
         <Bar
           data={mydata}
-          width={350}
-          height={125}
+          width={300}
+          height={200}
           options={{
-            maintainAspectRatio: false
+            maintainAspectRatio: true
           }}
         />
       </div>

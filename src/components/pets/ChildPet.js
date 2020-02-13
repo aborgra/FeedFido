@@ -39,6 +39,8 @@ export default ({ pet, history }) => {
     }
   };
 
+let checkboxValue=""
+
   var options = { year: "numeric", month: "numeric", day: "numeric" };
   let todayDate = new Date();
   let formatedDate = todayDate.toLocaleString("en-US", options);
@@ -58,16 +60,18 @@ export default ({ pet, history }) => {
 
   return (
     <Card className="petCard">
+      <div className="pet__header">
       <h3 className="pet__name">{pet.name}</h3>
-      <div>{petType(pet.type)}</div>
-
+      <div className="petImage">{petType(pet.type)}</div>
+      </div>
       <CardBody>
-        <ListGroup className="pet__chores">
+        <ListGroup className="petChore">
           {pet.foundChoresArray.map(fca => (
-            <ListGroupItem>
+            <ListGroupItem className="chore">
               {fca.chores.name}
               <Input
                 type="checkbox"
+                checked={checkboxValue}
                 onClick={() => {
                   const updatedKitPetChores = {
                     id: fca.id,
@@ -101,8 +105,11 @@ export default ({ pet, history }) => {
                         isCompleted: false
                       })
                     }
-                    history.push("/");
-                  });
+                    
+                  }).then (() => {
+                    checkboxValue = ""
+                    history.push("/")
+                  })
                 }}
               ></Input>
             </ListGroupItem>

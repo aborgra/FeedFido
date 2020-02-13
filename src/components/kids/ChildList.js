@@ -11,25 +11,21 @@ export default props => {
   const userChildren =
     users.filter(user => user.parentId === activeUserId) || [];
 
-  
-
   return (
     <>
       <section className="parentKids">
-        <img className="addChild" src={require("../pets/add-user.svg")}
-        onClick={() => props.history.push("/addChild")}
-        />
-        <button
-            className=" closeBtn btn btn-light"
-            onClick={() => props.history.push("/")}
-          >
-            Back
-          </button>
-        <div className="kids__list">
+        <div className="kidList">
           {userChildren.map(child => {
             return <Child {...props} key={child.id} child={child} />;
           })}
         </div>
+        {/* <div className="addChildContainer"> */}
+        <img
+          className="addChild"
+          src={require("../pics/addChild.svg")}
+          onClick={() => props.history.push("/addChild")}
+        />
+        {/* </div> */}
       </section>
     </>
   );

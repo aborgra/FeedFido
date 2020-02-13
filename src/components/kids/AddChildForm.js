@@ -1,10 +1,12 @@
 import React, { useContext, useState, useEffect } from "react"
 import { UserContext } from "../users/UserProvider"
+import "./Kids.css"
 
 
 export default props => {
-  const { addUser, users } = useContext(UserContext)
+  const { addUser, users, editUser } = useContext(UserContext)
   const [newUser, setNewUser] = useState({})
+  const editMode = props.match.params.hasOwnProperty("childId");
 
   
   const handleControlledInputChange = (event) => {
@@ -14,8 +16,32 @@ export default props => {
     setNewUser(newSingleUser)
   }
 
+  const setDefaults = () => {
+    if (editMode) {
+      const childId = parseInt(props.match.params.childId);
+      console.log(childId, "childId");
+      const selectedChild =
+        users.find(user => user.id === childId) || {};
+      setNewUser(selectedChild);
+      console.log("selectedChild", selectedChild);
+    }
+  };
+
+  useEffect(() => {
+    setDefaults();
+  }, [users]);
 
   const constructNewUser = () => {
+
+    if (editMode) {
+      editUser({
+            id: newUser.id,
+            userName: newUser.userName,
+            password: newUser.password,
+            parentId: parseInt(localStorage.getItem("fido_user"))
+        })
+            .then(() => props.history.push("/"))
+    } else {
     
         addUser({
             userName: newUser.userName,
@@ -23,7 +49,7 @@ export default props => {
             parentId: parseInt(localStorage.getItem("fido_user"))
         })
             .then(() => props.history.push("/"))
-    }
+    }}
 
   
 
@@ -32,11 +58,11 @@ export default props => {
       <h2 className="addChildForm__title">Add a Child</h2>
       <fieldset>
         <div className="form-group">
-          <label htmlFor="userName">Username </label>
+          <label htmlFor="userName">Child Username </label>
           <input type="text" name="userName" required autoFocus className="form-control"
    
             proptype="varchar"
-            placeholder="Username"
+            placeholder="username"
             defaultValue={newUser.userName}
             onChange={handleControlledInputChange}
           />
@@ -44,7 +70,7 @@ export default props => {
       </fieldset>
       <fieldset>
         <div className="form-group">
-          <label htmlFor="name">Password</label>
+          <label htmlFor="name">Child Password</label>
           <input type="text" name="password" required autoFocus className="form-control"
 
             proptype="varchar"

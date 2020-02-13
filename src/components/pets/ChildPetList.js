@@ -37,6 +37,7 @@ export default props => {
 
 
 const childList = filteredPetChores.map(fpc => {
+  
   return (
     <ChildPet {...props}
       key={fpc.id}

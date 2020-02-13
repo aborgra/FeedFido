@@ -26,22 +26,19 @@ var options = { year: "numeric", month: "numeric", day: "numeric" };
 
   return (
     <Card className="notificationCard">
-      <div>{chore.id}</div>
-      <div>Due Date: {chore.schedDate}</div>
-      <div className="child__name">Chore: {chore.chore.name}</div>
-      <div>Pet: {chore.pet.name}</div>
-      <div>Child: {chore.user.userName}</div>
+      {/* <div>{chore.id}</div> */}
+      <div className="notificationDueDate">Due Date: {chore.schedDate}</div>
+      <div className="notificationChore">Chore: {chore.chore.name}</div>
+      <div className="notificationPetName">Pet: {chore.pet.name}</div>
+      <div className="notificationChildName">Child: {chore.user.userName}</div>
+      <div className="notificationButtonsContainer">
       <Button
-                  src={require("../pets/delete.svg")}
-                  className="delete__icon"
+                 
+                  className="acceptBtn" color="primary"
                   onClick={() => { 
                     if(chore.recurrance === "weekly"){
                     const updatedKitPetChores = {
                       id: chore.id,
-                      // petId: pet.id,
-                      // userId: activeUserId,
-                      // choreId: fca.chores.id,
-                      // dueDate: fca.dueDate,
                       schedDate: newScheduledDateWeekly,
                       isCompleted: false,
                       dateCompleted: ""
@@ -50,21 +47,22 @@ var options = { year: "numeric", month: "numeric", day: "numeric" };
                   }else if (chore.recurrance === "daily"){
                     const updatedKitPetChores = {
                       id: chore.id,
-                      // petId: pet.id,
-                      // userId: activeUserId,
-                      // choreId: fca.chores.id,
-                      // dueDate: fca.dueDate,
                       schedDate: newScheduledDateDaily,
                       isCompleted: false,
                       dateCompleted: ""
                     }
                     patchKidPetChore(updatedKitPetChores)
-                  }else {
-                    deleteKidPetChore(chore)
-                  }
-
+                  } 
                   }}
                 >OK</Button>
+                <Button
+                className="deleteEventBtn" color="light"
+                onClick={() =>{
+                  let confirm = window.confirm("Delete this and any future recurring events?")
+                  if (confirm === true){
+                  deleteKidPetChore(chore)}}}
+                >Delete Event</Button>
+                </div>
     </Card>
   );
 };
