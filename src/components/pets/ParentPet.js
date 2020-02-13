@@ -2,10 +2,12 @@ import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { KidPetChoreContext } from "../chores/KidPetChoreProvider";
 import { Card, ListGroup, ListGroupItem } from "reactstrap";
+import { PetContext } from "./PetProvider";
 
 
 export default ({ pet, history }) => {
   const { deleteKidPetChore } = useContext(KidPetChoreContext);
+  const { pets, deletePet } = useContext(PetContext)
   let choreItemCompleted = "ChoreNotCompleted";
 
   const petType = type => {
@@ -72,6 +74,29 @@ export default ({ pet, history }) => {
             </ListGroupItem>
           ))}
         </ListGroup>
+        <section className="editPetIcons">
+                <img
+                  src={require("../pets/edit.svg")}
+                  className="edit__icon"
+                  onClick={() => {
+                    history.push(`/editPet/${pet.id}`);
+                  }}
+                />
+                <img
+                  src={require("../pets/delete.svg")}
+                  className="delete__icon"
+                  onClick={() => {
+                    let confirm = window.confirm("Delete this pet and all pet's chores?")
+                  if (confirm === true){
+                    // kidPetChores.map ( kpc => {
+                    //   if(kpc.user.id === child.id) {
+                    //     deleteKidPetChore(kpc)
+                    //   }
+                    // })
+                    deletePet(pet).then(history.push("/"))} 
+                  }}
+                />
+              </section>
       </section>
     </Card>
   );

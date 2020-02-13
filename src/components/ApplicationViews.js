@@ -8,7 +8,7 @@ import ChildPetList from "./pets/ChildPetList";
 import ParentPetList from "./pets/ParentPetList";
 import ChildList from "./kids/ChildList";
 import ChildForm from "./kids/AddChildForm";
-import AddPetForm from "./pets/AddPetForm";
+import PetForm from "./pets/AddPetForm";
 import ChoresForm from "./chores/ChoresForm";
 import "./Fido.css";
 import { Container } from "reactstrap";
@@ -61,7 +61,8 @@ export default props => {
        
        <Route exact path="/notifications/:activeUserId(\d+)" render={props => <NotificationList {...props} />} />
        <Route exact path="/ChildList" render={props => <ChildList {...props} />} />
-        <Route exact path="/addPet" render={props => <AddPetForm {...props} />} />
+        <Route exact path="/addPet" render={props => <PetForm {...props} />} />
+        <Route exact path="/editPet/:petId(\d+)" render={props => <PetForm {...props} />} />
         <Route exact path="/addChore/:petId(\d+)" render={props => <ChoresForm {...props} />} />
         <Route exact path="/addChild" render={props => <ChildForm {...props} />} />
         <Route exact path="/editChore/:kpcId(\d+)" render={props => <ChoresForm {...props} />} />
