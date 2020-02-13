@@ -6,15 +6,45 @@ import "./AddPet.css";
 import { Label, Input, Button, FormGroup } from "reactstrap";
 
 export default props => {
-  const { addPet, pets, deletPet } = useContext(PetContext);
+  const { addPet, pets, editPet } = useContext(PetContext);
   const [newPet, setNewPet] = useState({});
+  const editMode = props.match.params.hasOwnProperty("petId");
+
 
   const handleControlledInputChange = event => {
     const newSinglePet = Object.assign({}, newPet);
     newSinglePet[event.target.name] = event.target.value;
     setNewPet(newSinglePet);
   };
+
+  const setDefaults = () => {
+    if (editMode) {
+      const petId = parseInt(props.match.params.petId);
+      console.log(petId, "petId");
+      const selectedPet =
+        pets.find(pet => pet.id === petId) || {};
+      setNewPet(selectedPet);
+      console.log("selectedPet", selectedPet);
+    }
+  };
+
+  useEffect(() => {
+    setDefaults();
+  }, [pets]);
+
+
   const constructNewPet = () => {
+
+    if (editMode) {
+      editPet({
+            id: newPet.id,
+            name: newPet.name,
+            type: newPet.type,
+            userId: parseInt(localStorage.getItem("fido_user"))
+        })
+            .then(() => props.history.push("/"))
+    } else {
+
     const foundPet = pets.find(pet => newPet.name === pet.name);
     if (foundPet === undefined) {
       addPet({
@@ -25,7 +55,7 @@ export default props => {
     } else {
       window.alert("Pet already exists");
     }
-  };
+  }}
 
   return (
     <section className="petFormContainer">

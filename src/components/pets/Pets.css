@@ -72,3 +72,9 @@
 .child__name {
   margin-left: 12pt;
 }
+
+.editPetIcons {
+  display:flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}

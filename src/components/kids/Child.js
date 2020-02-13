@@ -25,7 +25,7 @@ export default ({ child, history }) => {
                   src={require("../pets/delete.svg")}
                   className="delete__icon"
                   onClick={() => {
-                    let confirm = window.confirm("Delete this child and all child's events?")
+                    let confirm = window.confirm("Delete this child and all child's chores?")
                   if (confirm === true){
                     // kidPetChores.map ( kpc => {
                     //   if(kpc.user.id === child.id) {
