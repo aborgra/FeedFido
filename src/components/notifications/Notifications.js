@@ -26,11 +26,11 @@ var options = { year: "numeric", month: "numeric", day: "numeric" };
 
   return (
     <Card className="notificationCard">
-      <div>{chore.id}</div>
-      <div>Due Date: {chore.schedDate}</div>
-      <div className="child__name">Chore: {chore.chore.name}</div>
-      <div>Pet: {chore.pet.name}</div>
-      <div>Child: {chore.user.userName}</div>
+      {/* <div>{chore.id}</div> */}
+      <div className="notificationDueDate">Due Date: {chore.schedDate}</div>
+      <div className="notificationChore">Chore: {chore.chore.name}</div>
+      <div className="notificationPetName">Pet: {chore.pet.name}</div>
+      <div className="notificationChildName">Child: {chore.user.userName}</div>
       <Button
                   src={require("../pets/delete.svg")}
                   className="delete__icon"

@@ -3,7 +3,7 @@
   flex-direction: column;
   margin: auto;
   padding-top: 100px;
-  background-color: #ffa726;
+  background-color: #ffffff;
   min-width: 100%;
   height: auto;
 }
@@ -13,7 +13,17 @@
   max-width: 200px;
   padding: 5pt;
   margin: 15pt;
+  font-size: 16pt;
+  background-color: #ffa726;
   -webkit-box-shadow: 10px 10px 14px -3px rgba(0, 0, 0, 0.66) !important;
   -moz-box-shadow: 10px 10px 14px -3px rgba(0, 0, 0, 0.66)!important;
   box-shadow: 10px 10px 14px -3px rgba(0, 0, 0, 0.66) !important;
+  /* font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; */
+
+}
+
+.notificationTitle {
+  text-align: center;
+  color: rgb(15, 150, 184);
+  font-size: 25pt;
 }

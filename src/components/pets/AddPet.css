@@ -11,3 +11,20 @@
 .petType {
   margin-bottom: 10pt;
 }
+
+.addPetForm{
+  background-color: #ffa726;
+  padding: 30pt;
+  border-radius: 5pt;
+  -webkit-box-shadow: 10px 10px 14px -3px rgba(0, 0, 0, 0.66) !important;
+  -moz-box-shadow: 10px 10px 14px -3px rgba(0, 0, 0, 0.66)!important;
+  box-shadow: 10px 10px 14px -3px rgba(0, 0, 0, 0.66) !important;
+}
+
+.savePetBtn {
+  margin: 10pt;
+}
+
+.closeBtn {
+  margin: 10pt;
+}

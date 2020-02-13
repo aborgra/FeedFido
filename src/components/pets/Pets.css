@@ -16,7 +16,7 @@
 
 .choreName {
   font-weight: bold;
-  font-size: 15pt;
+  font-size: 16pt;
 }
 
 .parentIcons {
@@ -55,4 +55,20 @@
 
 .pet__name {
   margin-top: 10px;
+}
+
+.edit__icon {
+  margin: 10pt;
+  margin-top: 5pt;
+  margin-right: 5pt;
+}
+
+.delete__icon {
+  margin: 10pt;
+  margin-top: 5pt;
+  margin-left: 5pt;
+}
+
+.child__name {
+  margin-left: 12pt;
 }
