@@ -4,8 +4,9 @@ import "./Kids.css"
 
 
 export default props => {
-  const { addUser, users } = useContext(UserContext)
+  const { addUser, users, editUser } = useContext(UserContext)
   const [newUser, setNewUser] = useState({})
+  const editMode = props.match.params.hasOwnProperty("childId");
 
   
   const handleControlledInputChange = (event) => {
@@ -15,8 +16,32 @@ export default props => {
     setNewUser(newSingleUser)
   }
 
+  const setDefaults = () => {
+    if (editMode) {
+      const childId = parseInt(props.match.params.childId);
+      console.log(childId, "childId");
+      const selectedChild =
+        users.find(user => user.id === childId) || {};
+      setNewUser(selectedChild);
+      console.log("selectedChild", selectedChild);
+    }
+  };
+
+  useEffect(() => {
+    setDefaults();
+  }, [users]);
 
   const constructNewUser = () => {
+
+    if (editMode) {
+      editUser({
+            id: newUser.id,
+            userName: newUser.userName,
+            password: newUser.password,
+            parentId: parseInt(localStorage.getItem("fido_user"))
+        })
+            .then(() => props.history.push("/"))
+    } else {
     
         addUser({
             userName: newUser.userName,
@@ -24,7 +49,7 @@ export default props => {
             parentId: parseInt(localStorage.getItem("fido_user"))
         })
             .then(() => props.history.push("/"))
-    }
+    }}
 
   
 

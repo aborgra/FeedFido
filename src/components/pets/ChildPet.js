@@ -39,6 +39,8 @@ export default ({ pet, history }) => {
     }
   };
 
+let checkboxValue=""
+
   var options = { year: "numeric", month: "numeric", day: "numeric" };
   let todayDate = new Date();
   let formatedDate = todayDate.toLocaleString("en-US", options);
@@ -69,6 +71,7 @@ export default ({ pet, history }) => {
               {fca.chores.name}
               <Input
                 type="checkbox"
+                checked={checkboxValue}
                 onClick={() => {
                   const updatedKitPetChores = {
                     id: fca.id,
@@ -102,8 +105,11 @@ export default ({ pet, history }) => {
                         isCompleted: false
                       })
                     }
-                    history.push("/");
-                  });
+                    
+                  }).then (() => {
+                    checkboxValue = ""
+                    history.push("/")
+                  })
                 }}
               ></Input>
             </ListGroupItem>

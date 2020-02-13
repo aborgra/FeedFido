@@ -137,10 +137,12 @@ export default props => {
                 </option>
               ))}
             </Input>
-            <button className="addChoreoption btn btn-primary" onClick={toggle}>
+            <Button className="addChoreoption" color="primary" onClick={toggle}>
               Add Chore
-            </button>
-            <Modal isOpen={modal} toggle={toggle} className="choreDialog">
+            </Button>
+            <Modal isOpen={modal} 
+            toggle={toggle} 
+            className="choreDialog">
               <ModalHeader id="simple-dialog-title">
                 Add Chore Option
               </ModalHeader>

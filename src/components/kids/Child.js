@@ -32,7 +32,7 @@ export default ({ child, history }) => {
                     //     deleteKidPetChore(kpc)
                     //   }
                     // })
-                    deleteUser(child)} 
+                    deleteUser(child).then(history.push(`/ChildList`))} 
                   }}
                 />
               </section>
