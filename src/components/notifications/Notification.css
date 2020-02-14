@@ -12,7 +12,8 @@
   border-radius: 5pt;
   max-width: 200px;
   padding: 5pt;
-  margin: 15pt;
+  margin: auto;
+  margin-bottom: 15pt !important;
   font-size: 16pt;
   background-color: #ffa726;
   -webkit-box-shadow: 10px 10px 14px -3px rgba(0, 0, 0, 0.66) !important;
@@ -26,4 +27,17 @@
   text-align: center;
   color: rgb(15, 150, 184);
   font-size: 25pt;
+  margin-bottom: 15pt;
+}
+
+.acceptBtn {
+  margin-right: 10pt;
+  margin-left: 4pt;
+}
+
+.deleteEventBtn {
+  padding: 5pt;
+}
+.notificationButtonsContainer{
+  margin-top: 10pt;
 }
