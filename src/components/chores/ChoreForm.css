@@ -1,5 +1,6 @@
 .choreFormContainer {
   padding-top: 100pt;
+  padding-left: 20pt;
 }
 
 .form-control {
@@ -8,4 +9,36 @@
 
 .btn {
   margin-bottom: 10pt;
+}
+
+
+.choreDropdown {
+  width: max-content;
+
+}
+
+.choreChild {
+  width: max-content;
+}
+
+.choreRecurring {
+  width: max-content;
+}
+
+.choreDate {
+  width: max-content;
+}
+
+.saveChoreButton {
+ margin: auto;
+ margin-bottom: 30px;
+}
+
+.modal-title {
+  margin: auto;
+}
+
+.addChoreInput {
+  margin: auto;
+  width: 85%;
 }

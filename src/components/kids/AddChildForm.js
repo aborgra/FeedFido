@@ -55,7 +55,9 @@ export default props => {
 
   return (
     <form className="addChildForm">
-      <h2 className="addChildForm__title">Add a Child</h2>
+      <h2 className="addChildForm__title">
+      {editMode ? "Edit Child" : "Add Child"}
+        </h2>
       <fieldset>
         <div className="form-group">
           <label htmlFor="userName">Child Username </label>
@@ -89,7 +91,7 @@ export default props => {
         className="btn btn-primary">
        Save
       </button>
-      <button className=" closeBtn btn btn-light" onClick={() => props.history.push("/")}>Close</button>
+      <button className=" closeBtn btn btn-light" onClick={() => props.history.push("/ChildList")}>Close</button>
       </div>
     </form>
   )

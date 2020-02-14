@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { KidPetChoreContext } from "../chores/KidPetChoreProvider";
-import { Card, ListGroup, ListGroupItem } from "reactstrap";
+import { Card, ListGroup, ListGroupItem, Button } from "reactstrap";
 import { PetContext } from "./PetProvider";
 
 
@@ -36,13 +36,14 @@ export default ({ pet, history }) => {
       
       </div>
       <div className="addPetButtonContainer">
-      <img
-        src={require("./plus.svg")}
+      <Button
+        // src={require("./plus.svg")}
         className="addPet"
+        
         onClick={() => {
           history.push(`/addChore/${pet.id}`);
         }}
-      />
+      >Add Chore</Button>
       </div>
       <section>
         <ListGroup className="pet__chores">
@@ -76,15 +77,15 @@ export default ({ pet, history }) => {
         </ListGroup>
         <section className="editPetIcons">
                 <img
-                  src={require("../pets/edit.svg")}
-                  className="edit__icon"
+                  src={require("../pics/pencil.svg")}
+                  className="pencil__icon"
                   onClick={() => {
                     history.push(`/editPet/${pet.id}`);
                   }}
                 />
                 <img
-                  src={require("../pets/delete.svg")}
-                  className="delete__icon"
+                  src={require("../pics/cancel.svg")}
+                  className="cancel__icon"
                   onClick={() => {
                     let confirm = window.confirm("Delete this pet and all pet's chores?")
                   if (confirm === true){

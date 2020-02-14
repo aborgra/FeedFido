@@ -19,12 +19,10 @@ export default props => {
   // const allUserChildren = users.filter(user => user.parentId === activeUserId) || [];
   let today = Date.now()
   let compareDate = Date.now() - 1 * 20 * 60 * 60 * 1000
-  console.log("compareDate", compareDate)
 
   const allChores = kidPetChores.filter(kpc => {
 
     let scheduledDate = moment(kpc.schedDate).valueOf();
-    console.log("scheduleDate", scheduledDate)
 
     if(kpc.isCompleted === false && kpc.user.parentId === activeUserId && scheduledDate < compareDate)
     return kpc
@@ -37,7 +35,6 @@ export default props => {
       <section className="notificationList">
       <h4 className="notificationTitle">Overdue Chores</h4>
       {allChores.map(pc => {
-        console.log("pc", pc)
             return <Notifications {...props} key={pc.id} chore={pc} />;
           })}
       </section>

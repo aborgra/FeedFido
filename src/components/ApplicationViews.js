@@ -35,14 +35,10 @@ export default props => {
                       <div className="petListContainer">
                         <ParentPetList {...props} />
                       </div>
-
-                      {/* <div className="childContainer">
-                        <ChildList {...props} />
-                      </div> */}
                     </Container>
                   </>
                 );
-              } else {
+              } else if (activeUser.parentId > 0) {
                 return (
                   <>
                     <Container className="childDashboardContainer">

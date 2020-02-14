@@ -60,7 +60,9 @@ export default props => {
   return (
     <section className="petFormContainer">
       <FormGroup className="addPetForm">
-        <h2 className="addPetForm__title">Add a Pet</h2>
+        <h2 className="addPetForm__title">
+        {editMode ? "Edit Pet" : "Add Pet"}
+          </h2>
         <fieldset>
           <div className="form-group">
             <Label htmlFor="name">Pet Name </Label>
