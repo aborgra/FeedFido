@@ -130,9 +130,9 @@ export default props => {
               className="form-control choreDropdown"
               onChange={handleControlledInputChange}
             >
-              <option value="0">Select a Chore</option>
+              <option className="optionDropdown" value="0">Select a Chore</option>
               {chores.map(chore => (
-                <option key={chore.id} value={chore.id}>
+                <option className="optionDropdown" key={chore.id} value={chore.id}>
                   {chore.name}
                 </option>
               ))}
@@ -162,7 +162,7 @@ export default props => {
                 />
               </FormGroup>
               <Button
-                className="saveChoreButton"
+                className="saveChoreButton btn" color="primary"
                 onClick={evt => {
                   evt.preventDefault();
                   constructNewChore();
