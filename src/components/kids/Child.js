@@ -27,12 +27,11 @@ export default ({ child, history }) => {
                   onClick={() => {
                     let confirm = window.confirm("Delete this child and all child's chores?")
                   if (confirm === true){
-                    // kidPetChores.map ( kpc => {
-                    //   if(kpc.user.id === child.id) {
-                    //     deleteKidPetChore(kpc)
-                    //   }
-                    // })
-                    deleteUser(child).then(history.push(`/ChildList`))} 
+                    kidPetChores.map ( kpc => {
+                      if(kpc.user.id === child.id) {
+                        deleteKidPetChore(kpc)}})
+                    deleteUser(child)
+                    .then(history.push("/ChildList"))} 
                   }}
                 />
               </section>
