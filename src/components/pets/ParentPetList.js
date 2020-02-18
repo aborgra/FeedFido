@@ -36,7 +36,7 @@ export default props => {
         }) || [];
       const dailyChores = allChildPetChores.filter(
         cpchore =>
-          (cpchore.day === dayOfWeek && !cpchore.hasOwnProperty("schedDate")) ||
+          // (cpchore.day === dayOfWeek && !cpchore.hasOwnProperty("schedDate")) ||
           cpchore.schedDate === scheduledDate
       );
 
