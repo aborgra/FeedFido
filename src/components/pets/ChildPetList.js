@@ -43,7 +43,8 @@ export default props => {
 
   const childListRender = () => {
     if (filteredPetChores.length === 0) {
-      return <div className="childMessage">"You Have No Chores For Today"</div>;
+      return <div className="childMessageContainer"><h2 className="childMessage">You Have No Chores For Today</h2>
+        <img className="happyDogPic" src={require("../pics/happyDog.svg")}/></div>
     } else if (filteredPetChores === []){}
     else {
       return (
