@@ -42,3 +42,25 @@ html {
 body {
   min-height: 100% !important;
 }
+
+.childMessage{
+  color: white;
+  font-size: 30px;
+  text-align: center;
+  margin-top: 50px;
+  font-weight: bold;
+}
+
+.happyDogPic{
+  max-width: 250px;
+  margin: auto;
+  margin-top: 50px !important;
+  text-align: center;
+}
+
+.childMessageContainer {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  
+}
