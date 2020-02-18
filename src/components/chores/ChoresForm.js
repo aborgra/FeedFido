@@ -45,6 +45,8 @@ export default props => {
     setSingleChore(newSingleChore);
   };
 
+console.log(singleChore.schedDate, "date")
+
   const setDefaults = () => {
     if (editMode) {
       const kpcId = parseInt(props.match.params.kpcId);
@@ -199,7 +201,7 @@ export default props => {
 
             <Input
               type="date"
-              value={singleChore.schedDate}
+              value={moment(singleChore.schedDate).format('YYYY-MM-DD')}
               name="schedDate"
               id="schedDate"
               className="form-control choreDate"
