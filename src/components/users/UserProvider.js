@@ -1,9 +1,11 @@
-import React, {useState, useEffect } from "react"
+import React, {useState, useEffect, useContext } from "react"
+import { KidPetChoreContext } from "../chores/KidPetChoreProvider";
 
 export const UserContext = React.createContext()
 
 export const UserProvider = (props) => {
   const [users, setUsers] = useState([])
+  const { kidPetChores } = useContext(KidPetChoreContext);
 
   const getUsers = () => {
     return fetch("http://localhost:8088/users?_embed=kidPetChores")
@@ -47,9 +49,16 @@ export const UserProvider = (props) => {
     // console.log("***Users APP STATE CHANGED", users)
   }, [users])
 
+  useEffect(() => {
+    // console.log("***Users APP STATE CHANGED", users)
+    getUsers()
+  }, [kidPetChores])
+
+ 
+
   return (
     <UserContext.Provider value = {{
-      users, addUser, getUsers, editUser, deleteUser
+      users, addUser, editUser, deleteUser
     }}>
         {props.children}
     </UserContext.Provider>

@@ -1,22 +1,22 @@
-.logInForm{
+.logInForm {
   justify-content: center;
   text-align: center;
   margin: 10%;
-  
 }
 
-.registerHeader{
+.registerHeader {
   margin-top: 25px;
+  text-align: center;
 }
 
-.logInFormContainer{
+.logInFormContainer {
   display: flex;
   flex-direction: column;
   align-items: center;
   max-width: 450px;
 }
 
-.form--login{
+.form--login {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -25,64 +25,62 @@
   width: 325px;
   background-color: #ffa726;
   padding: 25pt;
-  border:1pt solid gray;
+  border: 1pt solid gray;
   -webkit-box-shadow: 10px 10px 14px -3px rgba(0, 0, 0, 0.66) !important;
-  -moz-box-shadow: 10px 10px 14px -3px rgba(0, 0, 0, 0.66)!important;
+  -moz-box-shadow: 10px 10px 14px -3px rgba(0, 0, 0, 0.66) !important;
   box-shadow: 10px 10px 14px -3px rgba(0, 0, 0, 0.66) !important;
-  border-radius:5pt;
+  border-radius: 5pt;
 }
 
-.logInUserContainer{
+.logInUserContainer {
   margin: 5px;
 }
-.logInPassContainer{
+.logInPassContainer {
   margin: 5px;
 }
 
-.logInUser{
+.logInUser {
   height: 25px;
   border-radius: 3pt;
   padding: 2px;
   margin-bottom: 5pt;
-height: 30pt;
+  height: 30pt;
 }
 
-.logInButtons{
+.logInButtons {
   justify-content: center;
   text-align: center;
   display: flex;
   margin: 5px;
 }
 
-.registerButton{
- margin: 10px;
+.registerButton {
+  margin: 10px;
 }
 
-.registerPassContainer{
+.registerPassContainer {
   margin-top: 20px;
-
 }
 
-.logInPass{
+.logInPass {
   height: 30pt;
   border-radius: 3pt;
   padding: 2px;
 }
 
-.registerEmailContainer{
- margin-top: 20px;
-}
-
-.confirmPassContainer{
+.registerEmailContainer {
   margin-top: 20px;
 }
 
+.confirmPassContainer {
+  margin-top: 20px;
+}
 
-.logInButton{
+.logInButton {
   margin-right: 10px;
 }
 
-.registerContainer{
+.registerContainer {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -98,10 +96,8 @@ height: 30pt;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin:-10%
+  margin: -10%;
 }
-
-
 
 .welcomeTitle {
   text-align: center;
@@ -110,14 +106,12 @@ height: 30pt;
   font-weight: bold;
 }
 
-.formLabel{
+.formLabel {
   font-weight: bold;
 }
 
 .buttons {
   display: flex;
   flex-direction: row;
-  margin-top: 10pt
+  margin-top: 10pt;
 }
-
-

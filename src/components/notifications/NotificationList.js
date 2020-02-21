@@ -15,10 +15,8 @@ export default props => {
   const { kidPetChores } = useContext(KidPetChoreContext)
 
   const activeUserId = parseInt(localStorage.getItem("fido_user"));
-  // const activeUser = users.find(user => user.id === activeUserId) || {};
-  // const allUserChildren = users.filter(user => user.parentId === activeUserId) || [];
-  let today = Date.now()
-  let compareDate = moment().subtract(1.5, 'days')
+  // let today = Date.now()
+  let compareDate = moment().subtract(1, 'days')
   // Date.now() - 1 * 20 * 60 * 60 * 1000
 
   const allChores = kidPetChores.filter(kpc => {

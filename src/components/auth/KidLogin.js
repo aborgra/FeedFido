@@ -19,8 +19,10 @@ const KidLogin = props => {
       .then(user => {
         if (user.length) {
           return user[0];
+        }else {
+          window.alert("User not found. Please ask a parent to register you as a user.")
+          return false;
         }
-        return false;
       });
   };
 
