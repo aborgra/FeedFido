@@ -11,16 +11,16 @@ export default props => {
   const { kidPetChores } = useContext(KidPetChoreContext);
   const activeUserId = parseInt(localStorage.getItem("fido_user"));
   const activeUser = users.find(user => user.id === activeUserId) || {};
+ 
+
   const userChildren =
     users.filter(user => user.parentId === activeUserId) || [];
 
-  let compareDate = Date.now()- 1 * 20 * 60 * 60 * 1000;
-
+  let compareDate = Date.now() - 1 * 20 * 60 * 60 * 1000;
 
   const notificationIcon = () => {
     if (activeUser.parentId === 0) {
       let missingChores = [];
-
       let incompleteChildChoresArray =
         userChildren.map(child => {
           child.kidPetChores.map(kpc => {
@@ -36,6 +36,7 @@ export default props => {
           return child;
         }) || [];
       let missingChoresCount = missingChores.length;
+      console.log("missingChores", missingChoresCount)
 
       return (
         <Button
@@ -90,7 +91,6 @@ export default props => {
             props.history.push("/");
           }}
         />
-    
       ) : (
         ""
       )}

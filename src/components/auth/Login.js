@@ -1,12 +1,13 @@
 import React, { useRef } from "react";
 import { Link } from "react-router-dom";
 import "./Login.css";
-import { FormControl, Button } from "reactstrap";
+import { Button } from "reactstrap";
 
 const Login = props => {
   const password = useRef();
   const userName = useRef();
 
+  // Checks if there is an active user. If not, it applies a class to the body for background styling for the launchpad page
   if (localStorage.getItem("fido_user") === null) {
     document.body.classList.add("logInBackground");
   }
@@ -19,8 +20,11 @@ const Login = props => {
       .then(user => {
         if (user.length) {
           return user[0];
+        }else {
+          window.alert("Please register new user");
+          return false
         }
-        return false;
+
       });
   };
 
@@ -49,7 +53,6 @@ const Login = props => {
         <form className="form--login" onSubmit={handleLogin}>
           <h2 className="signIn">Please Sign In</h2>
           <div className="logInUserContainer">
-            {/* <label htmlFor="inputUserName"> Username </label> */}
             <input
               ref={userName}
               type="userName"
@@ -61,7 +64,6 @@ const Login = props => {
             />
           </div>
           <div className="logInPassContainer">
-            {/* <label htmlFor="inputPassword"> Password </label> */}
             <input
               ref={password}
               type="password"

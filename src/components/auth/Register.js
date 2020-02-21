@@ -56,7 +56,7 @@ const Register = props => {
     return (
         <main>
             <form className="form--login registerContainer" onSubmit={handleRegister}>
-                <h1 className="h3 mb-3 font-weight-normal registerHeader">Please Register for fido</h1>
+                <h1 className="h3 mb-3 font-weight-normal registerHeader">Please Register for Feed Fido</h1>
                 <fieldset className="registerUserContainer">
                     <label htmlFor="userName"> Username </label>
                     <input ref={userName} type="text"
@@ -85,6 +85,12 @@ const Register = props => {
                     <button className="btn btn-primary registerButton" type="submit">
                         Sign in
                     </button>
+                    <button
+            className="btn btn-light cancelBtn" 
+            onClick={() => props.history.push("/launchpad")}
+          >
+            Cancel
+          </button>
                 </fieldset>
             </form>
         </main>
