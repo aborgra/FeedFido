@@ -1,14 +1,22 @@
 import Chart from "./Chart";
-import React, { useContext } from "react";
+import React, { useContext, useRef, useState } from "react";
 import { KidPetChoreContext } from "../chores/KidPetChoreProvider";
 import moment from "moment";
-import "./Chart.css"
+import "./Chart.css";
+import { Label, Input, Form } from "reactstrap";
 
 export default props => {
   const { kidPetChores } = useContext(KidPetChoreContext);
   const childId = parseInt(props.match.params.childId);
   const filteredChildArray =
     kidPetChores.filter(kpc => kpc.userId === childId) || [];
+  const [newTime, setNewTime] = useState({time:7});
+
+  const handleControlledInputChange = event => {
+    const newSingleTime = Object.assign({}, newTime);
+    newSingleTime[event.target.name] = event.target.value;
+    setNewTime(newSingleTime);
+  };
 
   let dates = [];
   const timeFrom = X => {
@@ -22,7 +30,8 @@ export default props => {
     }
     return dates;
   };
-  timeFrom(7)
+  timeFrom(parseInt(newTime.time, 10));
+
   let foundChoresCountArray = [];
   const foundDates =
     dates.map(date => {
@@ -31,10 +40,35 @@ export default props => {
       foundChoresCountArray.push(datefilteredArray.length);
     }) || [];
 
-
   return (
-    <div className="childChartContainer">
-      <Chart {...props} key={foundChoresCountArray.id} data={foundChoresCountArray} />
-    </div>
+    <>
+      <div className="childChartContainer">
+      <Form>
+      <fieldset>
+        {/* <Label htmlFor="time">Time</Label> */}
+        <Input
+          type="select"
+          // value={newTime.time}
+          name="time"
+          id="time"
+          defaultValue={newTime.time}
+          className="form-control chartTime"
+          onChange={handleControlledInputChange}
+        >
+          <option value="7">1 Week</option>
+          <option value="14">2 Weeks</option>
+          <option value="30">1 Month</option>
+          <option value="180">6 Months</option>
+        </Input>
+      </fieldset>
+      </Form>
+        <Chart
+          {...props}
+          key={foundChoresCountArray.id}
+          data={foundChoresCountArray}
+          dates={dates}
+        />
+      </div>
+    </>
   );
 };

@@ -56,7 +56,6 @@ let checkboxValue=""
   )
     .toLocaleString("en-US", options)
     .split(",");
-  console.log("weekly daily", scheduledDateWeekly, scheduledDateDaily);
 
   return (
     <Card className="petCard">
