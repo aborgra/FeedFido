@@ -27,7 +27,7 @@
   max-width: 40px;
   margin: 5pt;
   margin-left: 5pt;
-  padding-left: 5pt;
+  /* padding-left: 5pt; */
 }
 
 .showChildrenIcon {
@@ -38,21 +38,43 @@
 
 .backIcon{
   max-width: 25pt;
-  margin: 10pt
+  margin: 10pt;
+  margin-right: 8pt;
 }
 
 .siteName {
-  padding: 5pt;
+  /* padding: 5pt; */
   color: whitesmoke;
-  font-size: 21pt;
-  margin-right:5px;
-  padding-right: 5pt;
+  font-size: 19pt;
+  font-weight: bold;
+  /* margin-right:5px; */
+  /* padding-right: 5pt; */
   font-family: 'Noto Sans KR', sans-serif;
 }
 
 .notificationButton{
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
   border-radius: 50%;
-  margin-top: 8pt;
-  max-width: 40px;
+  font-size: 10pt;
+  /* margin-top: -3pt; */
+  margin-left: -15pt;
+  max-width: 10px;
+  max-height: 25px;
+  text-align: center;
+  margin-bottom: 12pt;
+}
+
+.buttonCount{
+  margin: auto;
+  margin-top: -3pt;
+}
+
+.notificationBell{
+  /* max-width: 40px; */
+  max-height: 28pt;
+  margin-bottom: 5pt;
+  margin-top: 5pt;
 }
 

@@ -38,14 +38,22 @@ export default props => {
       let missingChoresCount = missingChores.length;
 
       return (
+        <>
+        <img src={require("../pics/bell.svg")}
+        className="notificationBell"
+        onClick={e => {
+          props.history.push(`/notifications/${activeUserId}`);
+        }}
+        />
+
         <Button
-          className="btn btn-danger notificationButton"
-          onClick={e => {
-            props.history.push(`/notifications/${activeUserId}`);
-          }}
+          className="notificationButton"
+          color="danger"
+          
         >
-          {missingChoresCount}
+          <div className="buttonCount">{missingChoresCount}</div>
         </Button>
+        </>
       );
     }
   };
