@@ -2,7 +2,7 @@
 
 Feed Fido is a React web app with full CRUD functionality that allows parent users to assign and track pet care chores assigned to child users.  It offers a mobile-friendly design for both parent and child users as well as a simplified user experience for child users.  
 
-Parent users have the ability to add single or recurring pet chores and assign those chores to a child.  Chores can be edited and deleted.  Parent users have the ability to add pets and child users to their accounts as well as edit and delete them.  Parent users receive notifications about uncompleted chores with the ability to renew or delete the chore.  The app also has a feature that allows the parent user to see a graph of each child user's completed chores for the previous 7 days. 
+Parent users have the ability to add single or recurring pet chores and assign those chores to a child.  Chores can be edited and deleted.  Parent users have the ability to add pets and child users to their accounts as well as edit and delete them.  Parent users receive notifications about uncompleted chores with the ability to renew or delete the chore.  The app also has a feature that allows the parent user to see a graph of each child user's completed chores for the previous 7 days, 2 weeks, 1 month, or 6 months.  
 
  Child users have a simplified design that only shows the days chores.  Once the chore is completed, the child user clicks the checkbox, the chore is removed from the child user's display, and the chore shows as complete on the parent user's dashboard.
 
