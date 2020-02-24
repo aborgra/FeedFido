@@ -6,7 +6,7 @@ Parent users have the ability to add single or recurring pet chores and assign t
 
  Child users have a simplified design that only shows the days chores.  Once the chore is completed, the child user clicks the checkbox, the chore is removed from the child user's display, and the chore shows as complete on the parent user's dashboard.
 
- ![Parent Dashboard](./public/ParentDashboardFeedFido.PNG)![Child Dashboard](./public/ChildDashboardFeedFido.PNG)![Child Chore Graph](./public/ChoreGraphFeedFido.PNG)
+ ![Parent Dashboard](./public/ParentDashboardFeedFido.PNG=350x250)![Child Dashboard](./public/ChildDashboardFeedFido.PNG=350x250)![Child Chore Graph](./public/ChoreGraphFeedFido.PNG=350x250)
 
 ## Installation
 
