@@ -9,15 +9,11 @@ import { ChoreContext } from "../chores/ChoreProvider";
 import { PetContext } from "../pets/PetProvider";
 
 export default props => {
-  const { users } = useContext(UserContext);
-  const { chores } = useContext(ChoreContext);
-  const { pets } = useContext(PetContext)
+ 
   const { kidPetChores } = useContext(KidPetChoreContext)
 
   const activeUserId = parseInt(localStorage.getItem("fido_user"));
-  // let today = Date.now()
   let compareDate = moment().subtract(1, 'days')
-  // Date.now() - 1 * 20 * 60 * 60 * 1000
 
   const allChores = kidPetChores.filter(kpc => {
 

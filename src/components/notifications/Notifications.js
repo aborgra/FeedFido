@@ -7,8 +7,6 @@ export default ({ chore, history }) => {
 const {patchKidPetChore, deleteKidPetChore} = useContext(KidPetChoreContext)
 var options = { year: "numeric", month: "numeric", day: "numeric" };
   let todayDate = new Date();
-  let formatedDate = todayDate.toLocaleString("en-US", options);
-  let [useDate, foo] = formatedDate.split(",");
   
   let oldScheduledDate = moment(chore.schedDate).valueOf()
 
@@ -22,7 +20,6 @@ var options = { year: "numeric", month: "numeric", day: "numeric" };
   )
     .toLocaleString("en-US", options)
     .split(",");
-  console.log("weekly daily", newScheduledDateWeekly, newScheduledDateDaily);
 
   return (
     <Card className="notificationCard">
