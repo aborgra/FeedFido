@@ -23,7 +23,7 @@ const mydata = {
 
     return (
       <div className="chart">
-        <h2 className="chartTitle">Weekly Completed Chores</h2>
+        <h2 className="chartTitle">Completed Chores</h2>
         <Bar
           data={mydata}
           width={300}
