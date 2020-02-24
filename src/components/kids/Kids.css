@@ -1,5 +1,5 @@
 .addChild {
-  max-width: 90px;
+  max-width: 100px;
   margin-right: 40pt;
 }
 
@@ -38,4 +38,8 @@
 
 .graphButton{
   margin-left: 12pt;
+}
+
+.child__name{
+  font-weight: bold;
 }
