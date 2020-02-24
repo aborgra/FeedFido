@@ -41,14 +41,15 @@ export default props => {
         <>
         <img src={require("../pics/bell.svg")}
         className="notificationBell"
+        onClick={e => {
+          props.history.push(`/notifications/${activeUserId}`);
+        }}
         />
 
         <Button
           className="notificationButton"
           color="danger"
-          onClick={e => {
-            props.history.push(`/notifications/${activeUserId}`);
-          }}
+          
         >
           <div className="buttonCount">{missingChoresCount}</div>
         </Button>
