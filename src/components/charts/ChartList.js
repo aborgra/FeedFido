@@ -32,8 +32,6 @@ export default props => {
   };
   timeFrom(parseInt(newTime.time, 10));
 
-  console.log("dates", dates)
-  console.log(newTime.time)
   let foundChoresCountArray = [];
   const foundDates =
     dates.map(date => {
