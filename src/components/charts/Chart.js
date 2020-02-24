@@ -3,10 +3,10 @@ import {Bar} from 'react-chartjs-2';
 import "./Chart.css"
 
 
-export default ({data}) => {
+export default ({data, dates}) => {
 
 const mydata = {
-  labels: ['Day 1', 'Day 2', 'Day 3', 'Day 4', 'Day 5', 'Day 6', 'Day 7'],
+  labels: dates,
   datasets: [
     {
       label: 'Completed Chores',
