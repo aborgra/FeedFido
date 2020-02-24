@@ -36,7 +36,6 @@ export default props => {
           return child;
         }) || [];
       let missingChoresCount = missingChores.length;
-      console.log("missingChores", missingChoresCount)
 
       return (
         <Button
