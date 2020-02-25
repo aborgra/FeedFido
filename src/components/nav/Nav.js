@@ -16,7 +16,7 @@ export default props => {
   const userChildren =
     users.filter(user => user.parentId === activeUserId) || [];
 
-  let compareDate = Date.now() - 1 * 20 * 60 * 60 * 1000;
+  let compareDate = moment().subtract(1, 'days')
 
   const notificationIcon = () => {
     if (activeUser.parentId === 0) {
