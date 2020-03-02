@@ -8,20 +8,7 @@ Parent users have the ability to add single or recurring pet chores and assign t
 
  <img src="./public/ParentDashboardFeedFido.PNG" height="450px" width="250px">     <img src="./public/ChildDashboardFeedFido.PNG" height="450" width="250">      <img src="./public/ChoreGraphFeedFido.PNG" height="450" width="250">
 
-## Installation
 
-Install react packages:
-
-```bash
-npx create-react-app 
-npm i --save react-router-dom
-npm install --save bootstrap
-npm install --save reactstrap react react-dom
-npm instal moment --save
-npm install chart.js --save
-
-npm start from the root directory to run application
-```
 
 ## Database sample
 Create a json file named database.json with the provided sample data and run a json server watching database.json on port 8088
@@ -68,6 +55,17 @@ Create a json file named database.json with the provided sample data and run a j
 }
 
 ```
+
+## Installation
+In your terminal run git clone SSH KEY HERE
+
+cd into the project directory
+
+From the main directory, run npm install to install dependencies
+
+npm start
+
+
 ## Usage
 
 1. Click on "Parent" button 
